@@ -5,20 +5,22 @@ USE PRJT
 
 CREATE TABLE [Admin] (
 	[Login]		varchar(20) NOT NULL,
-	[Password]	varchar(20),
+	[Password]	varchar(20) NOT NULL,
 
 	AdminID		int NOT NULL,
-	[Name]		varchar(20) NOT NULL,
+	Fname		varchar(20) NOT NULL,
+	Lname		varchar(20) NOT NULL,
 	Email		varchar(30),
 	CNIC		char(13) NOT NULL,
 );
 
 CREATE TABLE Customer (
 	[Login]		varchar(20) NOT NULL,
-	[Password]	varchar(20),
+	[Password]	varchar(20) NOT NULL,
 
 	CustomerID	int NOT NULL,
-	[Name]		varchar(20) NOT NULL,
+	Fname		varchar(20) NOT NULL,
+	Lname		varchar(20) NOT NULL,
 	Email		varchar(30),
 	[Address]	varchar(30),
 	DOB			date,
@@ -29,10 +31,11 @@ CREATE TABLE Customer (
 
 CREATE TABLE Retailer (
 	[Login]			varchar(20) NOT NULL,
-	[Password]		varchar(20),
+	[Password]		varchar(20) NOT NULL,
 
 	RetailerID		int NOT NULL,
-	[Name]			varchar(20) NOT NULL,
+	Fname			varchar(20) NOT NULL,
+	Lname			varchar(20) NOT NULL,
 	Email			varchar(30),
 	[Address]		varchar(30),
 	NTN				int NOT NULL,
@@ -43,7 +46,7 @@ CREATE TABLE Retailer (
 CREATE TABLE Product (
 	ProductID		int NOT NULL,
 	RetailerID		int	 NOT NULL,
-	[Name]			varchar(25) NOT NULL,
+	[Name]			varchar(40) NOT NULL,
 	Price			float NOT NULL,
 	CategoryID		int DEFAULT 0,
 	Stock			int,
@@ -139,3 +142,6 @@ CHECK (Score BETWEEN 1 AND 5);
 
 ALTER TABLE Product ADD CONSTRAINT CHK_Price
 CHECK (Price >= 0);
+
+
+
