@@ -1,18 +1,18 @@
+--GROUP THETA-JOIN
+--19L-1046
+--19L-1066
+--19L-2359
+
 USE MASTER
-DROP DATABASE PRJT
-CREATE DATABASE PRJT
-USE PRJT
+GO
+DROP DATABASE AGROFLORA
+GO
+CREATE DATABASE AGROFLORA
+GO
+USE AGROFLORA
+GO
 
-DROP TABLE [Admin]
-DROP TABLE Customer
-DROP TABLE Retailer
-DROP TABLE Product
-DROP TABLE Category
-DROP TABLE Rating
-DROP TABLE Purchase
-DROP TABLE PaymentType
-
-
+--CREATING TABLES
 CREATE TABLE [Admin] (
 	[UserName]	varchar(20) NOT NULL,
 	[Password]	varchar(20) NOT NULL,
@@ -21,11 +21,11 @@ CREATE TABLE [Admin] (
 	Fname		varchar(20) NOT NULL,
 	Lname		varchar(20) NOT NULL,
 	Email		varchar(30),
-	CNIC		char(13) NOT NULL,
+	CNIC		char(13) NOT NULL UNIQUE,
 );
 
 CREATE TABLE Customer (
-	[UserName]		varchar(20) NOT NULL,
+	[UserName]	varchar(20) NOT NULL,
 	[Password]	varchar(20) NOT NULL,
 
 	CustomerID	int NOT NULL,
@@ -46,10 +46,10 @@ CREATE TABLE Retailer (
 	RetailerID		int NOT NULL,
 	[Name]			varchar(50) NOT NULL,
 	Email			varchar(30),
-	[Address]		varchar(30),
-	NTN				char(13),
+	[Address]		varchar(50),
+	NTN				char(13) UNIQUE,
 	Contact			char(11),
-	BankAccount		varchar(20) NOT NULL
+	BankAccount		varchar(20)
 );
 
 CREATE TABLE Product (
@@ -57,7 +57,7 @@ CREATE TABLE Product (
 	RetailerID		int	 NOT NULL,
 	[Name]			varchar(40) NOT NULL,
 	Price			float NOT NULL,
-	CategoryID		int DEFAULT 0,
+	CategoryID		int DEFAULT 6,
 	Stock			int,
 	[Description]	varchar(300),
 	DateAdded		date NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE Rating (
 	productID	int NOT NULL,
 	customerID	int NOT NULL,
 	score		int,
-	review		varchar(100)
+	review		varchar(200)
 );
 
 CREATE TABLE Purchase (
@@ -82,14 +82,14 @@ CREATE TABLE Purchase (
 	ProductID	int NOT NULL,
 	Quantity	int NOT NULL,
 	[Date]		datetime NOT NULL,
-	PaymentType	int
+	PaymentType	int DEFAULT 2
 );
 
 CREATE TABLE PaymentType (
 	[PaymentTypeID]	int NOT NULL,
 	[Name]			varchar(25)
 );
-
+GO
 
 --PRIMARY KEYS
 ALTER TABLE [Admin] 
@@ -115,6 +115,7 @@ ADD CONSTRAINT  PK_Purchase PRIMARY KEY (PurchaseID);
 
 ALTER TABLE [PaymentType] 
 ADD CONSTRAINT  PK_PaymentType PRIMARY KEY (PaymentTypeID);
+GO
 
 --FOREIGN KEYS
 ALTER TABLE Product ADD CONSTRAINT FK_Product_Retailer
@@ -139,11 +140,12 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE Purchase ADD CONSTRAINT FK_Purchase_Product
 FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
-ON DELETE NO ACTION ON UPDATE NO ACTION;
+ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE Purchase ADD CONSTRAINT FK_Purchase_PaymentType
 FOREIGN KEY (PaymentType) REFERENCES PaymentType(PaymentTypeID)
 ON DELETE SET NULL ON UPDATE CASCADE;
+GO
 
 --CHECKS
 ALTER TABLE Rating ADD CONSTRAINT CHK_Score
@@ -152,7 +154,9 @@ CHECK (Score BETWEEN 1 AND 5);
 ALTER TABLE Product ADD CONSTRAINT CHK_Price
 CHECK (Price >= 0);
 
-
+ALTER TABLE Product ADD CONSTRAINT CHK_Stock
+CHECK (Stock >= 0);
+GO
 --DATA
 Insert Into [Admin] ([UserName],[Password],AdminID,Fname,Lname,Email,CNIC) values
 ('sukhanamir','cruchyrock478',1,'Sukhan','Amir','sukhanamir23@gmail,com','3520245930124'),
@@ -165,8 +169,8 @@ Insert Into [Customer] ([UserName],[Password],CustomerID,Fname,Lname,Email,[Addr
 ('ridaahmed','iamoutofpasswords33',8,'Rida','Ahmed','ridaahmed5@gmail.com','984 J1 Wapda Town,Lahore ','2002-12-5',0,'03970543619','9715489065468491'),
 ('mohsinkhan','tranquialitybase',10,'Mohsin','Khan','mohsinkhan@yahoo.com','44 street 55 Peshawar Cantt,Peshawar ','2001-06-6',0,'0346372895','8493016574839265'),
 ('RaziAhmad722', 'lalalalala', 1,'Razi','Ahmad', 'razi722@gmail.com' , '122 Cornelia Street', '1998-01-21', 0, '03325215251', '0123456789101112'),
-('MunimMuneem', 'Monum', 2,'R','anaAbdulMuneem', 'monum1252@gmail.com' , 'chakk no. 543', '2001-01-21', 0, '03325885251', '0123411189101112'),
-('Sukhan123', 'Perplexedhooman', 3,'Su','Khan', 'Sukhan123@gmail.com' , 'F2 block lacas', '2000-01-21', 0, '03366215251', '0123422289101112'),
+('MunimMuneem', 'Monum', 2,'Rana','AbdulMuneem', 'monum1252@gmail.com' , 'chakk no. 543', '2001-01-21', 0, '03325885251', '0123411189101112'),
+('Sukhan123', 'Perplexedhooman', 3,'Sukhan','Khan', 'Sukhan123@gmail.com' , 'F2 block lacas', '2000-01-21', 0, '03366215251', '0123422289101112'),
 ('AAR123', '12344n', 5,'Ahsan','Abdurrehman', 'aar123@gmail.com' , '123 G block Bahria', '2000-01-31', 0, '03376215251', '0129422289101112'),
 ('zainRafique21', '19344n', 7,'Zain','Rafique', 'zain123@gmail.com' , '142 F block Valencia Town', '2000-02-23', 0, '03176215251', '0169422289101112'),
 ('sherry123', '19944n', 9,'Shaheer','Akhtar', 'sherry0123@gmail.com' , '142 F block Johar Town', '2000-05-30', 0, '03176015251', '0169422280001112');
@@ -253,7 +257,7 @@ INSERT INTO Rating VALUES
 (5, 3, 5, 'Surely left a happy customer'),
 (12, 1, 3, NULL),
 (10, 2, 3, 'They are pretty cute')
-
+GO
 
 SELECT * FROM Admin
 SELECT * FROM Customer
@@ -263,3 +267,4 @@ SELECT * FROM Category
 SELECT * FROM Rating
 SELECT * FROM PaymentType
 SELECT * FROM Purchase
+GO
