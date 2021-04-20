@@ -12,14 +12,14 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">AgroFlora</a>
+                    <a class="navbar-brand" href="home.html">AgroFlora</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Catalogue</a>
@@ -51,7 +51,8 @@
         </header>
         
         <main>
-            <div class="container pt-5"  style="max-width: 500px; min-height: 479px;">
+            <!--RETAILER INFORMATION-->
+            <div class="container pt-5"  style="max-width: 500px">
                 <h1 class="text-center">RETAILER PROFILE</h1>
                     <table class="table table-striped table-hover">
                         <tbody>
@@ -84,16 +85,46 @@
                                 <td>BankAccount</td>
                             </tr>
                         </tbody>
-    
                     </table>
-
-                    <br>
-                    <a href="#"><h6 class="text-center">Edit profile</h6></a>
-                    <br>
             </div>
-
+            <div class="container text-center">
+                <a class="btn btn-primary" href="#" role="button">Edit Profile</a>
+            </div>
             <hr>
 
+            <!--RETAILER PRODUCTS-->
+            <div class="container pt-5">
+                <h1 class="text-center">PRODUCTS</h1>
+
+                <div class="container text-center pb-3">
+                    <a class="btn btn-primary" href="#" role="button">Add Product</a>
+                </div>
+                
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Date added</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                               <td>Product</td>
+                               <td>Category</td>
+                               <td>X</td>
+                               <td>X</td>
+                               <td>1/1/2021</td>
+                           </tr>
+                        </tbody>
+    
+                    </table>
+            </div>
+            <hr>
+
+            <!--RETAILER SALES-->
             <div class="container pt-5">
                 <h1 class="text-center">SALES HISTORY</h1>
                     <table class="table table-striped table-hover table-bordered">
