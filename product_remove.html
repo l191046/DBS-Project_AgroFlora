@@ -21,23 +21,31 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="home.html">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Catalogue</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catalogue</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="catalogue.html">Plants</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Seeds</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Fertilizer</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Pots</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Tools</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Other</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Customer</a></li>
-                                    <li><a class="dropdown-item" href="#">Retailer</a></li>
+                                    <li><a class="dropdown-item" href="customer_signin.html">Customer</a></li>
+                                    <li><a class="dropdown-item" href="retailer_signin.html">Retailer</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                                    <li><a class="dropdown-item" href="admin_signin.html">Admin</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Customer</a></li>
-                                <li><a class="dropdown-item" href="#">Retailer</a></li>
+                                <li><a class="dropdown-item" href="customer_signup.html">Customer</a></li>
+                                <li><a class="dropdown-item" href="retailer_signup.html">Retailer</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -51,8 +59,12 @@
         </header>
 
         <main>
-            <div class="container pt-5 pb-5" style="min-height:479px;">
-                <h1 class="text-center">MANAGE PRODUCTS</h1>
+            <div class="text-center pt-5 pb-3">
+                <img class="img-fluid"  src="logo_small.png" alt="logo.png">
+                <h1>Manage Products</h1>
+            </div>
+
+            <div class="container pb-5" style="min-height:479px;">
                 <table class="table">
                     <thead>
                         <th>Product</th>

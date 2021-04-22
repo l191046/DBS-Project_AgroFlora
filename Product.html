@@ -3,133 +3,115 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.82.0">
-    <title>Product Details</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
-
-    
-
-    <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+    <title>Product Details</title>
   </head>
+
   <body class="text-center">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="home.html">AgroFlora</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="home.html">Home</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catalogue</a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Plants</a></li>
-                      <li><a class="dropdown-item" href="#">Seeds</a></li>
-                      <li><a class="dropdown-item" href="#">Fertilizer</a></li>
-                      <li><a class="dropdown-item" href="#">Pots</a></li>
-                      <li><a class="dropdown-item" href="#">Tools</a></li>
-                      <li><a class="dropdown-item" href="#">Other</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Customer</a></li>
-                          <li><a class="dropdown-item" href="#">Retailer</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Admin</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Customer</a></li>
-                      <li><a class="dropdown-item" href="#">Retailer</a></li>
-                      </ul>
-                  </li>
-              </ul>
-              <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="home.html">AgroFlora</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catalogue</a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="catalogue.html">Plants</a></li>
+                          <li><a class="dropdown-item" href="catalogue.html">Seeds</a></li>
+                          <li><a class="dropdown-item" href="catalogue.html">Fertilizer</a></li>
+                          <li><a class="dropdown-item" href="catalogue.html">Pots</a></li>
+                          <li><a class="dropdown-item" href="catalogue.html">Tools</a></li>
+                          <li><a class="dropdown-item" href="catalogue.html">Other</a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="customer_signin.html">Customer</a></li>
+                              <li><a class="dropdown-item" href="retailer_signin.html">Retailer</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="admin_signin.html">Admin</a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="customer_signup.html">Customer</a></li>
+                          <li><a class="dropdown-item" href="retailer_signup.html">Retailer</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                  <form class="d-flex">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+              </div>
           </div>
-      </div>
-  </nav>
+      </nav>
+    </header>
+
     <main>
-<div class="container">
-    <div class="py-0 text-center">
-        <img class="d-block mx-auto mb-4" src="4ff28c6516ef2c46843f69010116d898-flowerpot-with-plant-clipart-by-vexels.png" alt="" width="60" height="40">
-        <p class="lead">Product Details</p>
-      </div>
-    <div class="row featurette">
-      <div class="col-md-5 order-md-1">
-        <img class="mb-4" src="YosriNov04Pokok_Serai.jpg"alt="" width="380" height="500">
-        
-    </div>
-        <div class="col-md-7 order-md-2">
-          <div class="h-50 p-1 bg-light border rounded-1">
-            <h2 class="featurette-heading">Product Name: Lemon Grass</h2>
-            <div class="col-md-7 order-md-2"></div>
-            <h3 class="text-muted"> Category: Plant  </h3>
-            <h3 class="text-muted"> Price:  Rs.200 per plant</h3>
-            <h3>Description</h3>
-            <p >Healthy bush of lemon grass plant</p>
-            <h5 class="text-muted" style="font-style: italic;"> In Stock</h5>
-          </div>
-          <hr class="my-2">
-          <div class="h-40 p-1 bg-light border rounded-1">
-            <li class="list-inline-item" ><a href="#" >Click here to check reivews </a></li>
-          </div>
-          <hr class="my-4">
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Add to Cart</button>
+        <div class="text-center pt-5 pb-3">
+          <img class="img-fluid"  src="logo_small.png" alt="logo.png">
+          <h3>Product Details</h3>
         </div>
-        
-        
-      </div>
-  </main>
 
-  <footer class="mt-auto py-3 text-light text-center text-small bg-dark">
-    <p class="mb-1">&copy; 2017–2021 AgroFlora</p>
-    <ul class="list-inline">
-        <li class="list-inline-item text-light"><a href="#">Privacy</a></li>
-        <li class="list-inline-item text-light"><a href="#">Terms</a></li>
-        <li class="list-inline-item text-light"><a href="#">Support</a></li>
-    </ul>
-</footer>
-</div>
+        <div class="container pb-5">
+          <div class="row">
+            <div class="col-md-5 order-md-1">
+              <img class="img-fluid" src="logo_medium.png" alt="logo_large.png">
+            </div>
+  
+            <div class="col-md-7 order-md-2">
+              <div class="border rounded-1">
+                <table class="table bg-light">
+                  <tbody>
+                    <tr>
+                      <th>Product Name</th>
+                      <td>Product</td>
+                    </tr>
+                    <tr>
+                      <th>Category</th>
+                      <td>Category</td>
+                    </tr>
+                    <tr>
+                      <th>Price</th>
+                      <td>X</td>
+                    </tr>
+                    <tr>
+                      <th>Description</th>
+                      <td>Description</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><h6 class="text-muted text-center" style="font-style: italic;">In Stock</h6></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+    </main>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      <script src="form-validation.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+      <footer class="mt-auto py-3 text-light text-center text-small bg-dark">
+        <p class="mb-1">&copy; 2017–2021 AgroFlora</p>
+        <ul class="list-inline">
+            <li class="list-inline-item text-light"><a href="#">Privacy</a></li>
+            <li class="list-inline-item text-light"><a href="#">Terms</a></li>
+            <li class="list-inline-item text-light"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>

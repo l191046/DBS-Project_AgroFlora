@@ -21,23 +21,31 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="home.html">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Catalogue</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catalogue</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="catalogue.html">Plants</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Seeds</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Fertilizer</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Pots</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Tools</a></li>
+                                <li><a class="dropdown-item" href="catalogue.html">Other</a></li>
+                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Customer</a></li>
-                                    <li><a class="dropdown-item" href="#">Retailer</a></li>
+                                    <li><a class="dropdown-item" href="customer_signin.html">Customer</a></li>
+                                    <li><a class="dropdown-item" href="retailer_signin.html">Retailer</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                                    <li><a class="dropdown-item" href="admin_signin.html">Admin</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Customer</a></li>
-                                <li><a class="dropdown-item" href="#">Retailer</a></li>
+                                <li><a class="dropdown-item" href="customer_signup.html">Customer</a></li>
+                                <li><a class="dropdown-item" href="retailer_signup.html">Retailer</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -53,17 +61,10 @@
 
         <main>
             <!--NAME AND LOGO-->
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-8 gx-0 text-end">
-                        <h1 class="display-1">AGROFLORA</h1>
-                    </div>  
-                    <div class="col-4 gx-0">
-                        <img src="plantpot.jpeg" style="width:100px;height:100px" alt="img not found">
-                    </div>
-                </div>
+            <div class="text-center pt-3 pb-3">
+                <img src="title_logo.png" class="img-fluid" alt = "title_logo.png">
             </div>
-          
+            
             <hr>
 
             <h1 class="text-center display-5">NEW PRODUCTS</h1>
@@ -71,9 +72,11 @@
                 <div class="container">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                         <div class="col">
-                            <a href="https://www.google.com">
+                            <a href="product.html">
                             <div class="card shadow-sm">
-                                <img src="lemongrass.jfif" style="width:100%;height:225px" alt="img not found">
+                                <div class="text-center">
+                                    <img src="logo_large.png" class="img-fluid w-75" alt="img not found">
+                                </div>
                                 <div class="card-body">
                                     <p class="card-text">PRODUCT 1</p>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -85,11 +88,13 @@
                         </div>
 
                         <div class="col">
-                            <a href="https://www.google.com">
+                            <a href="product.html">
                             <div class="card shadow-sm">
-                                <img src="lemongrass.jfif" style="width:100%;height:225px" alt="img not found">
+                                <div class="text-center">
+                                    <img src="logo_large.png" class="img-fluid w-75" alt="img not found">
+                                </div>
                                 <div class="card-body">
-                                    <p class="card-text">PRODUCT 2</p>
+                                    <p class="card-text">PRODUCT 1</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">Added X hours ago</small>
                                     </div>
@@ -99,11 +104,13 @@
                         </div>
 
                         <div class="col">
-                            <a href="https://www.google.com">
+                            <a href="product.html">
                             <div class="card shadow-sm">
-                                <img src="lemongrass.jfif" style="width:100%;height:225px" alt="img not found">
+                                <div class="text-center">
+                                    <img src="logo_large.png" class="img-fluid w-75" alt="img not found">
+                                </div>
                                 <div class="card-body">
-                                    <p class="card-text">PRODUCT 3</p>
+                                    <p class="card-text">PRODUCT 1</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">Added X hours ago</small>
                                     </div>
@@ -122,8 +129,11 @@
                 <div class="container">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                         <div class="col">
+                            <a href="product.html">
                             <div class="card shadow-sm">
-                                <a href="https://www.google.com"><img src="lemongrass.jfif" style="width:100%;height:225px" alt="img not found"></a>
+                                <div class="text-center">
+                                    <img src="logo_large.png" class="img-fluid w-75" alt="img not found">
+                                </div>
                                 <div class="card-body">
                                     <p class="card-text">PRODUCT 1</p>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -131,29 +141,41 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
+
                         <div class="col">
+                            <a href="product.html">
                             <div class="card shadow-sm">
-                                <a href="https://www.google.com"><img src="lemongrass.jfif" style="width:100%;height:225px" alt="img not found"></a>
+                                <div class="text-center">
+                                    <img src="logo_large.png" class="img-fluid w-75" alt="img not found">
+                                </div>
                                 <div class="card-body">
-                                    <p class="card-text">PRODUCT 2</p>
+                                    <p class="card-text">PRODUCT 1</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">Added X hours ago</small>
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
+
                         <div class="col">
+                            <a href="product.html">
                             <div class="card shadow-sm">
-                                <a href="https://www.google.com"><img src="lemongrass.jfif" style="width:100%;height:225px" alt="img not found"></a>
+                                <div class="text-center">
+                                    <img src="logo_large.png" class="img-fluid w-75" alt="img not found">
+                                </div>
                                 <div class="card-body">
-                                    <p class="card-text">PRODUCT 3</p>
+                                    <p class="card-text">PRODUCT 1</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">Added X hours ago</small>
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
+
                     </div>
                 </div>
             </div>
