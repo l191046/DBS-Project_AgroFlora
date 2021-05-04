@@ -8,7 +8,7 @@
         <div class="container pb-5">
           <div class="row">
             <div class="col-md-5 order-md-1">
-              <img class="img-fluid" src="logo_medium.png" alt="logo_large.png">
+              <asp:Image ID="img_logo_large" runat="server" src="logo_large.png" AlternateText="logo.png" CssClass="img-fluid"/>
             </div>
   
             <div class="col-md-7 order-md-2">
