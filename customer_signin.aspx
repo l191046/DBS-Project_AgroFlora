@@ -23,7 +23,7 @@
           </div>
           <a href="#">Forgot Password?</a>
           
-          <asp:Button ID="Singin" class="w-100 btn btn-lg btn-primary" type="submit" runat="server"></asp:Button>Sign in
+          <asp:Button ID="Singin" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In"></asp:Button>
         
       </div>
     </div>
