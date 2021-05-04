@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="retailer_edit.aspx.cs" Inherits="Deliverable2.retailer_edit" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="retailer_edit.aspx.cs" Inherits="Deliverable2.retailer_edit" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <div class="text-center pt-5 pb-3">
                 <img class="img-fluid"  src="logo_small.png" alt="logo.png">
@@ -42,9 +42,19 @@
                         <label for="address">Edit Address</label>
                     </div>
 
-                    <div class="form-floating pb-3">
-                        <asp:TextBox Id="cnic" runat="server" type="text" class="form-control"  placeholder="CNIC"></asp:TextBox>
-                        <label for="cnic">Edit CNIC</label>
+                     <div class="form-floating">
+                        <asp:TextBox Id="NTN" runat="server" class="form-control"  placeholder="NTN"></asp:TextBox>
+                        <label for="address">Edit NTN</label>
+                    </div>
+
+                     <div class="form-floating">
+                        <asp:TextBox Id="BankAccount" runat="server" class="form-control"  placeholder="Back Account"></asp:TextBox>
+                        <label for="address">Edit Bank Account</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <asp:TextBox Id="contact" runat="server" class="form-control"  placeholder="Contact"></asp:TextBox>
+                        <label for="address">Edit Contact</label>
                     </div>
 
 
