@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="Deliverable2.Checkout" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
  <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="Logo.jpeg" alt="" width="75" height="65"><asp:Image ID="Image1" runat="server" />
+    <img class="d-block mx-auto mb-4" src="4ff28c6516ef2c46843f69010116d898-flowerpot-with-plant-clipart-by-vexels.png" alt="" width="72" height="57" runat="server">
 &nbsp;<h2>Checkout</h2>
       <p class="lead">Please Fill In Your Payment Details To Continue</p>
         <p class="lead" runat="server">&nbsp;</p>
@@ -179,7 +179,7 @@
         
           <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          <asp:Button ID="Submit" class="w-100 btn btn-primary btn-lg" type="submit" runat="server"/>Continue to checkout
         </div>
       </div>
         </div>
