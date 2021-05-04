@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Retailer SignIn.aspx.cs" Inherits="Deliverable2.Retailer_SignIn" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="text-center pt-5 pb-3">
-      <img class="img-fluid"  src="Logo.Jpeg" alt="logo.jpeg" width="75" height="65">
+      <img class="img-fluid"  src="logo_small.png" alt="logo.png">
       <h1>Retailer Sign-In</h1>
     </div>
     <div class="form-signin text-center pb-5" style="align-items: center;">
