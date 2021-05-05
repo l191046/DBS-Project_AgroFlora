@@ -1,9 +1,11 @@
-﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="retailer_profile.aspx.cs" Inherits="Deliverable2.retailer_profile" %>
+﻿<%@ Page Title="Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="retailer_profile.aspx.cs" Inherits="Compileforms.retailer_profile" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
     <div class="text-center pt-5 pb-3">
         <asp:Image ID="img_logo_small" runat="server" src="logo_small.png" AlternateText="logo.png" CssClass="img-fluid"/>
         <h1 class="text-center">RETAILER PROFILE</h1>
     </div>
+    
     <!--RETAILER INFORMATION-->
     <div class="container"  style="max-width: 500px">
             <table class="table table-striped table-hover">

@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Deliverable2.SiteMaster" %>
-
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Compileforms.SiteMaster" %>
 <!DOCTYPE html>
 
 <html>
@@ -14,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-             <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
             <div class="container-fluid">
                 <asp:HyperLink ID="hyper_agroflora" runat="server" href="home.aspx" CssClass="navbar-brand">AgroFlora</asp:HyperLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,10 +38,10 @@
                         <li class="nav-item dropdown">
                             <asp:HyperLink ID="dropdown_signin" runat="server" href="#" CssClass="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign in</asp:HyperLink>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><asp:HyperLink ID="hyper_customer_signin" runat="server" href="customer_sigin.aspx" CssClass="dropdown-item">Customer</asp:HyperLink></li>
-                                <li><asp:HyperLink ID="hyper_retailer_signin" runat="server" href="retailer_sigin.aspx" CssClass="dropdown-item">Retailer</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="hyper_customer_signin" runat="server" href="customer_signin.aspx" CssClass="dropdown-item">Customer</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="hyper_retailer_signin" runat="server" href="retailer_signin.aspx" CssClass="dropdown-item">Retailer</asp:HyperLink></li>
                                 <li><hr class="dropdown-divider"/></li>
-                                <li><asp:HyperLink ID="hyper_admin" runat="server" href="admin_sigin.aspx" CssClass="dropdown-item">Admin</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="hyper_admin" runat="server" href="admin_signin.aspx" CssClass="dropdown-item">Admin</asp:HyperLink></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

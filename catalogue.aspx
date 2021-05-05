@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="catalogue.aspx.cs" Inherits="Deliverable2.catalogue" %>
+﻿<%@ Page Title="Catalogue" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="catalogue.aspx.cs" Inherits="Compileforms.catalogue" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="text-center pt-5 pb-3">

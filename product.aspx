@@ -1,12 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="Deliverable2.product" %>
+﻿<%@ Page Title="Product" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="product.aspx.cs" Inherits="Compileforms.product" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-<div class="text-center pt-5 pb-3">
-          <img class="img-fluid"  src="logo_small.png" alt="logo.png">
-          <h3 runat="server" id="Productdetails">Product Details</h3>
-        </div>
+    <div class="text-center pt-5 pb-3">
+        <img class="img-fluid"  src="logo_small.png" alt="logo.png">
+        <h3 runat="server" id="Productdetails">Product Details</h3>
+    </div>
 
-        <div class="container pb-5">
+    <div class="container pb-5">
           <div class="row">
+
             <div class="col-md-5 order-md-1">
               <asp:Image ID="img_logo_large" runat="server" src="logo_large.png" AlternateText="logo.png" CssClass="img-fluid"/>
             </div>
