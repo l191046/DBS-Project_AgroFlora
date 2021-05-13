@@ -61,6 +61,7 @@ CREATE TABLE Product (
 	Stock			int,
 	[Description]	varchar(300),
 	DateAdded		date NOT NULL,
+	[Image]			varchar(200),
 	[Status]		bit
 );
 
@@ -191,26 +192,26 @@ INSERT INTO Category VALUES
 (6, 'Other');
 
 INSERT INTO Product VALUES
-(1, 1, 'Petunia', 50, 1, 100, 'Petunia flower with pot grown locally', '2021-1-17', 1),
-(2, 1, 'Terminaria', 1200, 1, 50, 'Terminaria plant grown locally', '2021-2-18', 1),
-(3, 1, 'ShoeFlower', 350, 1, 80, 'Shoeflower grown locally', '2021-2-25', 1),
-(4, 1, 'Ixora', 1100, 1, 40, 'Ixora flower imported', '2021-3-23', 1),
-(5, 2, 'Lemon Grass', 200, 1, 50, 'Healthy bush of lemon grass plant', '2021-4-10', 1),
-(6, 2, 'Euphorbia', 450, 1, 90, 'Fully grown Euphorbia flower', '2021-4-11', 1),
-(7, 2, 'Avocaria', 4750, 1, 30, 'Fully grown Avocaria tree grown locally', '2021-4-13', 1),
-(8, 2, 'Rose', 80, 1, 150, 'Rose flower grown locally', '2021-4-23', 1),
-(9,3,'Urea Fertilizer',12000,3,600,'Comes in 50KG bags','2021-01-01',1),
-(10,3,'Red Pots',300,4,200,'Hangable','2020-05-15',1),
-(11,3,'Tomato Seeds',100,2,700,'Fast Growing','2020-07-16',1),
-(12,3,'Tulip Seeds',700,2,800,'All Season','2021-01-07',1),
-(13,4,'Money Plant',50,1,400,'Indoor Plant','2020-09-22',1),
-(14,4,'Spring Onion Seed',200,2,1200,'Kitchen Garden Item','2021-02-19',1),
-(15,4,'Artifical Grass',700,6,400,'Comes in patches of 30 yards','2021-04-01',1),
-(16,4,'Shovel',200,5,300,'Tool for digging','2020-04-02',1),
-(17, 5, 'Mattock', 1000, 5, 100, 'hand tool used for digging, prying, and chopping', '2021-1-01', 1),
-(18, 5, 'NPK Fertilizer', 8000, 3, 50, '10kg NPK Fully organic fertilizers', '2021-1-01', 1),
-(19, 5, 'Calcium Fertilizer', 6000, 3, 60, '10kg Calcium rich fertilizers', '2021-1-01', 1),
-(20, 5, 'Rodenticide', 2000, 5, 20, 'Kill pesky rodents by giving them this poison. 1kg Bag.', '2021-1-01', 1);
+(1, 1, 'Petunia', 50, 1, 100, 'Petunia flower with pot grown locally', '2021-1-17', 'petunia.png', 1),
+(2, 1, 'Terminaria', 1200, 1, 50, 'Terminaria plant grown locally', '2021-2-18', 'terminaria.png',1),
+(3, 1, 'ShoeFlower', 350, 1, 80, 'Shoeflower grown locally', '2021-2-25', 'shoe_flower.png',1),
+(4, 1, 'Ixora', 1100, 1, 40, 'Ixora flower imported', '2021-3-23', 'ixora.png',1),
+(5, 2, 'Lemon Grass', 200, 1, 50, 'Healthy bush of lemon grass plant', '2021-4-10', 'lemon_grass.png',1),
+(6, 2, 'Euphorbia', 450, 1, 90, 'Fully grown Euphorbia flower', '2021-4-11', 'euphorbia.png', 1),
+(7, 2, 'Avocaria', 4750, 1, 30, 'Fully grown Avocaria tree grown locally', '2021-4-13', 'avocaria.png', 1),
+(8, 2, 'Rose', 80, 1, 150, 'Rose flower grown locally', '2021-4-23', 'rose.png', 1),
+(9,3,'Urea Fertilizer',12000,3,600,'Comes in 50KG bags','2021-01-01', 'urea_fertilizer.png', 1),
+(10,3,'Red Pots',300,4,200,'Hangable','2020-05-15', 'red_pots.png', 1),
+(11,3,'Tomato Seeds',100,2,700,'Fast Growing','2020-07-16', 'tomato_seeds.png', 1),
+(12,3,'Tulip Seeds',700,2,800,'All Season','2021-01-07', 'tulip_seeds.png', 1),
+(13,4,'Money Plant',50,1,400,'Indoor Plant','2020-09-22', 'money_plant.png', 1),
+(14,4,'Spring Onion Seed',200,2,1200,'Kitchen Garden Item','2021-02-19', 'spring_onion_seeds.png', 1),
+(15,4,'Artifical Grass',700,6,400,'Comes in patches of 30 yards','2021-04-01', 'artificial_grass.png', 1),
+(16,4,'Shovel',200,5,300,'Tool for digging','2020-04-02', 'shovel.png', 1),
+(17, 5, 'Mattock', 1000, 5, 100, 'hand tool used for digging, prying, and chopping', '2021-1-01', 'mattock.png', 1),
+(18, 5, 'NPK Fertilizer', 8000, 3, 50, '10kg NPK Fully organic fertilizers', '2021-1-01', 'npk_fertilizer.png', 1),
+(19, 5, 'Calcium Fertilizer', 6000, 3, 60, '10kg Calcium rich fertilizers', '2021-1-01', 'calcium_fertilizer.png', 1),
+(20, 5, 'Rodenticide', 2000, 5, 20, 'Kill pesky rodents by giving them this poison. 1kg Bag.', '2021-1-01', 'rodenticide.png', 1);
 
 INSERT INTO PaymentType VALUES
 (1,'Credit Card'),
@@ -267,4 +268,28 @@ SELECT * FROM Category
 SELECT * FROM Rating
 SELECT * FROM PaymentType
 SELECT * FROM Purchase
+GO
+
+
+--Popular products (high ratings)
+CREATE PROCEDURE get_popular_products
+AS
+	SELECT	TOP 3 Product.[Name], Product.DateAdded, Product.[Image]
+	FROM	Product
+			LEFT JOIN Rating ON Product.ProductID = Rating.productID
+	WHERE	Rating.score IS NOT NULL
+			AND 4 <= (
+					 SELECT MIN(R.score)
+					 FROM	Rating R
+					 WHERE	Product.ProductID = R.productID
+					 GROUP BY R.productID
+					 )
+	GROUP BY	Product.ProductID, Product.[Name], Product.DateAdded, Product.[Image]
+GO
+
+CREATE PROCEDURE get_new_products
+AS
+	SELECT	TOP 3 Product.[Name], Product.DateAdded, Product.[Image]
+	FROM	Product
+	ORDER BY Product.DateAdded DESC
 GO
