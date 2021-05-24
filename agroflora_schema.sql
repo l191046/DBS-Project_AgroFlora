@@ -293,3 +293,37 @@ AS
 	FROM	Product
 	ORDER BY Product.DateAdded DESC
 GO
+
+DROP PROCEDURE admin_signin
+GO
+CREATE PROCEDURE admin_signin
+@username	varchar(20),
+@password	varchar(20),
+@found		int output
+
+AS
+	SELECT *
+	FROM	[Admin]
+	WHERE	[Admin].UserName = @username
+			AND [Admin].[Password] = @password
+IF @@ROWCOUNT > 0
+	SET @found = 1
+ELSE
+	SET @found = 0
+GO
+
+CREATE PROCEDURE retailer_signin
+@username	varchar(20),
+@password	varchar(20),
+@found		int output
+
+AS
+	SELECT *
+	FROM	Retailer
+	WHERE	Retailer.UserName = @username
+			AND Retailer.[Password] = @password
+IF @@ROWCOUNT > 0
+	SET @found = 1
+ELSE
+	SET @found = 0
+GO
