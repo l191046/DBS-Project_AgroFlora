@@ -95,5 +95,96 @@ namespace Agroflora.DAL
 
 			return resultSet;
 		}
+
+		public int admin_signin(String username, String password, ref DataTable DT)
+		{
+			int found = 0;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+
+			try
+			{
+				command = new SqlCommand("admin_signin", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@password", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
+				//set parameters
+				command.Parameters["@username"].Value = username;
+				command.Parameters["@password"].Value = password;
+
+				command.ExecuteNonQuery();
+				//get output
+				found = Convert.ToInt32(command.Parameters["@found"].Value);
+
+				if(found == 1)
+				{
+					using (SqlDataAdapter da = new SqlDataAdapter(command))
+					{
+						da.Fill(resultSet);
+					}
+					DT = resultSet.Tables[0];
+				}
+
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return found;
+		}
+	
+		public int retailer_signin(String username, String password, ref DataTable DT)
+		{
+			int found = 0;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+
+			try
+			{
+				command = new SqlCommand("retailer_signin", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@password", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
+				//set parameters
+				command.Parameters["@username"].Value = username;
+				command.Parameters["@password"].Value = password;
+
+				command.ExecuteNonQuery();
+				//get output
+				found = Convert.ToInt32(command.Parameters["@found"].Value);
+
+				if (found == 1)
+				{
+					using (SqlDataAdapter da = new SqlDataAdapter(command))
+					{
+						da.Fill(resultSet);
+					}
+					DT = resultSet.Tables[0];
+				}
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return found;
+		}
 	}
 }
