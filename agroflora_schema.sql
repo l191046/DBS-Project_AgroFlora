@@ -327,3 +327,46 @@ IF @@ROWCOUNT > 0
 ELSE
 	SET @found = 0
 GO
+
+
+
+CREATE PROCEDURE customer_signin
+@username	varchar(20),
+@password	varchar(20),
+@found		int output
+
+AS
+	SELECT *
+	FROM	Customer
+	WHERE	Customer.UserName = @username
+			AND Customer.[Password] = @password
+IF @@ROWCOUNT > 0
+	SET @found = 1
+ELSE
+	SET @found = 0
+GO
+
+CREATE PROCEDURE customer_signup
+@fname	varchar(20),
+@lname		varchar(20) ,
+@username	varchar(20) ,
+@email		varchar(30),
+@password varchar(20),
+@address	varchar(50),
+@dob		date,
+@alreadyexists int output
+AS
+BEGIN
+IF  EXISTS (
+Select *
+FROM Customer
+WHERE @username=Customer.UserName
+)
+
+SET @alreadyexists = 1
+ELSE
+SET @alreadyexists = 0
+INSERT INTO Customer (Fname,Lname,UserName,Email,[Password],[Address],DOB)
+values (@fname,@lname,@username,@email,@password,@address,@dob)
+END
+
