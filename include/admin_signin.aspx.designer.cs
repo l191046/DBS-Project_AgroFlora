@@ -15,22 +15,22 @@ namespace Agroflora
 	{
 
 		/// <summary>
-		/// username control.
+		/// txt_username control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox username;
+		protected global::System.Web.UI.WebControls.TextBox txt_username;
 
 		/// <summary>
-		/// password control.
+		/// txt_password control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox password;
+		protected global::System.Web.UI.WebControls.TextBox txt_password;
 
 		/// <summary>
 		/// remember control.
@@ -42,12 +42,12 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.CheckBox remember;
 
 		/// <summary>
-		/// signin control.
+		/// btn_signin control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button signin;
+		protected global::System.Web.UI.WebControls.Button btn_signin;
 	}
 }

@@ -10,11 +10,11 @@
       <div class="col-md-4 offset-md-4" style="margin-top: auto;  margin-bottom: auto;" >
 
           <div class="form-floating">
-            <asp:TextBox Id="username" type="text" class="form-control" placeholder="Username" runat="server"></asp:TextBox>
+            <asp:TextBox Id="txt_username" type="text" class="form-control" placeholder="Username" runat="server"></asp:TextBox>
             <label for="username">User Name</label>
           </div>
           <div class="form-floating">
-            <asp:TextBox Id="password" type="password" class="form-control"  placeholder="Password" runat="server"></asp:TextBox>
+            <asp:TextBox Id="txt_password" type="password" class="form-control"  placeholder="Password" runat="server"></asp:TextBox>
             <label for="password">Password</label>
           </div>
       
@@ -25,7 +25,7 @@
           </div>
           <a href="#">Forgot Password?</a>
           
-          <asp:Button ID="signin" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In"></asp:Button>
+          <asp:Button ID="btn_signin" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In" OnClick="btn_signin_click"></asp:Button>
         
       </div>
     </div>
