@@ -271,7 +271,26 @@ SELECT * FROM Purchase
 GO
 
 
---Popular products (high ratings)
+--STORED PROCEDURES
+
+--UTILITY
+CREATE PROCEDURE customer_search
+@username	varchar(20),
+@found		int output
+AS
+BEGIN
+IF	EXISTS (
+		   SELECT	*
+		   FROM		Customer
+		   WHERE	Customer.UserName = @username
+		   )
+	SET @found = 1
+ELSE
+	SET @found = 0
+END
+GO
+
+--HOME PAGE
 CREATE PROCEDURE get_popular_products
 AS
 	SELECT	TOP 3 Product.[Name], Product.DateAdded, Product.[Image]
@@ -286,7 +305,6 @@ AS
 					 )
 	GROUP BY	Product.ProductID, Product.[Name], Product.DateAdded, Product.[Image]
 GO
-
 CREATE PROCEDURE get_new_products
 AS
 	SELECT	TOP 3 Product.[Name], Product.DateAdded, Product.[Image]
@@ -294,8 +312,7 @@ AS
 	ORDER BY Product.DateAdded DESC
 GO
 
-DROP PROCEDURE admin_signin
-GO
+--SIGN IN PAGES
 CREATE PROCEDURE admin_signin
 @username	varchar(20),
 @password	varchar(20),
@@ -311,7 +328,6 @@ IF @@ROWCOUNT > 0
 ELSE
 	SET @found = 0
 GO
-
 CREATE PROCEDURE retailer_signin
 @username	varchar(20),
 @password	varchar(20),
@@ -327,9 +343,6 @@ IF @@ROWCOUNT > 0
 ELSE
 	SET @found = 0
 GO
-
-
-
 CREATE PROCEDURE customer_signin
 @username	varchar(20),
 @password	varchar(20),
@@ -346,27 +359,19 @@ ELSE
 	SET @found = 0
 GO
 
+--SIGN UP PAGES
 CREATE PROCEDURE customer_signup
-@fname	varchar(20),
+@customerID	int,
+@fname		varchar(20),
 @lname		varchar(20) ,
 @username	varchar(20) ,
 @email		varchar(30),
-@password varchar(20),
+@password 	varchar(20),
 @address	varchar(50),
-@dob		date,
-@alreadyexists int output
+@dob		date
 AS
 BEGIN
-IF  EXISTS (
-Select *
-FROM Customer
-WHERE @username=Customer.UserName
-)
-
-SET @alreadyexists = 1
-ELSE
-SET @alreadyexists = 0
-INSERT INTO Customer (Fname,Lname,UserName,Email,[Password],[Address],DOB)
-values (@fname,@lname,@username,@email,@password,@address,@dob)
+INSERT INTO Customer ([UserName], [Password], CustomerID, Fname, Lname, Email, [Address], DOB)
+values (@username, @password, @customerID, @fname, @lname, @email, @address, @dob)
 END
-
+GO
