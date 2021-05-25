@@ -25,7 +25,7 @@
           </div>
           <a href="#">Forgot Password?</a>
           
-          <asp:Button ID="signin" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In"></asp:Button>
+          <asp:Button ID="signin" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In" OnClick="btn_signin_click"></asp:Button>
         
       </div>
     </div>
