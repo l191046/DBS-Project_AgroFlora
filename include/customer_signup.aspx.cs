@@ -29,11 +29,11 @@ namespace Agroflora
 			DataTable dt = new DataTable();
 			int sucess = objDAL.customer_signup(fname, lname,username,email,password,address,dob, ref dt);
 
-			if (sucess > 0)
+			if (sucess == 0)
 			{
 				Response.Redirect("customer_profile.aspx");
 			}
-			else
+			else 
 			{
 				ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid Username or Password')", true);
 			}
