@@ -15,85 +15,76 @@ namespace Agroflora
 	{
 
 		/// <summary>
-		/// firstname control.
+		/// txt_name control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox firstname;
+		protected global::System.Web.UI.WebControls.TextBox txt_name;
 
 		/// <summary>
-		/// lastname control.
+		/// txt_username control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox lastname;
+		protected global::System.Web.UI.WebControls.TextBox txt_username;
 
 		/// <summary>
-		/// username control.
+		/// txt_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox username;
+		protected global::System.Web.UI.WebControls.TextBox txt_email;
 
 		/// <summary>
-		/// email control.
+		/// txt_password control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox email;
+		protected global::System.Web.UI.WebControls.TextBox txt_password;
 
 		/// <summary>
-		/// password control.
+		/// txt_address control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox password;
+		protected global::System.Web.UI.WebControls.TextBox txt_address;
 
 		/// <summary>
-		/// address control.
+		/// txt_NTN control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox address;
+		protected global::System.Web.UI.WebControls.TextBox txt_NTN;
 
 		/// <summary>
-		/// NTN control.
+		/// txt_BankAccount control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox NTN;
+		protected global::System.Web.UI.WebControls.TextBox txt_BankAccount;
 
 		/// <summary>
-		/// BankAccount control.
+		/// txt_contact control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox BankAccount;
-
-		/// <summary>
-		/// contact control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox contact;
+		protected global::System.Web.UI.WebControls.TextBox txt_contact;
 
 		/// <summary>
 		/// submit control.

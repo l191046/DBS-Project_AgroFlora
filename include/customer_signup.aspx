@@ -41,6 +41,11 @@
             <label for="txt_address">Address</label>
         </div>
 
+        <div class="form-floating">
+            <asp:TextBox Id="txt_contact" runat="server" class="form-control"  placeholder="Contact"></asp:TextBox>
+            <label for="txt_contact">Contact</label>
+        </div>
+
         <asp:Button ID="submit" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign Up" OnClick="btn_submit_click"/>
                
     </div>
