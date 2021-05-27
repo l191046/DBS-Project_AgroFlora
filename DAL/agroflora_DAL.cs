@@ -43,8 +43,7 @@ namespace Agroflora.DAL
 
 			return result;
 		}
-
-		public bool customer_search(String username)
+		public bool search_customer(String username)
 		{
 			bool result = false;
 
@@ -54,7 +53,7 @@ namespace Agroflora.DAL
 
 			try
 			{
-				command = new SqlCommand("customer_search", con);
+				command = new SqlCommand("search_customer", con);
 				command.CommandType = CommandType.StoredProcedure;
 				//establish parameters
 				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
@@ -78,15 +77,16 @@ namespace Agroflora.DAL
 			}
 			return result;
 		}
-		public bool checkNTN(String inputNTN)
+		public bool search_NTN(String inputNTN)
 		{
 			bool result = false;
+			
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
 			SqlCommand command;
 			try
 			{
-				command = new SqlCommand("NTN_check", con);
+				command = new SqlCommand("search_NTN", con);
 				command.CommandType = CommandType.StoredProcedure;
 				command.Parameters.Add("@NTN", SqlDbType.Char, 13);
 				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -113,8 +113,7 @@ namespace Agroflora.DAL
 			return result;
 
 		}
-
-		public bool retailer_search(String username)
+		public bool search_retailer(String username)
 		{
 			bool result = false;
 			SqlConnection con = new SqlConnection(connectionString);
@@ -122,7 +121,7 @@ namespace Agroflora.DAL
 			SqlCommand command;
 			try
 			{
-				command = new SqlCommand("retailer_search", con);
+				command = new SqlCommand("search_retailer", con);
 				command.CommandType = CommandType.StoredProcedure;
 
 				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
@@ -283,50 +282,6 @@ namespace Agroflora.DAL
 
 			return found;
 		}
-		public int retailer_signin(String username, String password, ref DataTable DT)
-		{
-			int found = 0;
-			DataSet resultSet = new DataSet();
-			SqlConnection con = new SqlConnection(connectionString);
-			con.Open();
-			SqlCommand command;
-
-			try
-			{
-				command = new SqlCommand("retailer_signin", con);
-				command.CommandType = CommandType.StoredProcedure;
-				//establish parameters
-				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
-				command.Parameters.Add("@password", SqlDbType.VarChar, 20);
-				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
-				//set parameters
-				command.Parameters["@username"].Value = username;
-				command.Parameters["@password"].Value = password;
-
-				command.ExecuteNonQuery();
-				//get output
-				found = Convert.ToInt32(command.Parameters["@found"].Value);
-
-				if (found == 1)
-				{
-					using (SqlDataAdapter da = new SqlDataAdapter(command))
-					{
-						da.Fill(resultSet);
-					}
-					DT = resultSet.Tables[0];
-				}
-			}
-			catch (SqlException ex)
-			{
-				Console.WriteLine("SQL Error: " + ex.Message.ToString());
-			}
-			finally
-			{
-				con.Close();
-			}
-
-			return found;
-		}
 		public int customer_signin(String username, String password, ref DataTable DT)
 		{
 			int found = 0;
@@ -371,11 +326,55 @@ namespace Agroflora.DAL
 
 			return found;
 		}
+		public int retailer_signin(String username, String password, ref DataTable DT)
+		{
+			int found = 0;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+
+			try
+			{
+				command = new SqlCommand("retailer_signin", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@password", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
+				//set parameters
+				command.Parameters["@username"].Value = username;
+				command.Parameters["@password"].Value = password;
+
+				command.ExecuteNonQuery();
+				//get output
+				found = Convert.ToInt32(command.Parameters["@found"].Value);
+
+				if (found == 1)
+				{
+					using (SqlDataAdapter da = new SqlDataAdapter(command))
+					{
+						da.Fill(resultSet);
+					}
+					DT = resultSet.Tables[0];
+				}
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return found;
+		}
 
 		//SIGN UP PAGES
-		public int customer_signup(string username, string password, string fname, string lname, string email, string address, string dob)
+		public bool customer_signup(string username, string password, string fname, string lname, string email, string address, string dob, string contact)
 		{
-			int success = 0;
+			bool success = false;
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
 			SqlCommand command;
@@ -392,6 +391,7 @@ namespace Agroflora.DAL
 				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
 				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
 				command.Parameters.Add("@dob", SqlDbType.Date);
+				command.Parameters.Add("@contact", SqlDbType.Char, 11);
 				//set parameters
 				command.Parameters["@customerID"].Value = get_table_count("customer") + 1;
 				command.Parameters["@username"].Value = username;
@@ -401,8 +401,11 @@ namespace Agroflora.DAL
 				command.Parameters["@email"].Value = email;
 				command.Parameters["@address"].Value = address;
 				command.Parameters["@dob"].Value = dob;
+				command.Parameters["@contact"].Value = contact;
+				
 				command.ExecuteNonQuery();
 
+				success = true;
 			}
 			catch (SqlException ex)
 			{
@@ -415,10 +418,9 @@ namespace Agroflora.DAL
 
 			return success;
 		}
-
-		public int retailer_signup(string Username, string Password, string Name, string Email, string Address, string bankAccount, string Contact, string NTN, ref DataTable DT)
+		public bool retailer_signup(string Username, string Password, string Name, string Email, string Address, string bankAccount, string Contact, string NTN)
 		{
-
+			bool success = false;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -427,6 +429,7 @@ namespace Agroflora.DAL
 			{
 				command = new SqlCommand("retailer_signup", con);
 				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
 				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
 				command.Parameters.Add("@password", SqlDbType.VarChar, 20);
 				command.Parameters.Add("@name", SqlDbType.VarChar, 20);
@@ -436,7 +439,7 @@ namespace Agroflora.DAL
 				command.Parameters.Add("@contact", SqlDbType.Char, 11);
 				command.Parameters.Add("@NTN", SqlDbType.Char, 13);
 				command.Parameters.Add("@ID", SqlDbType.Int);
-
+				//set parameters
 				command.Parameters["@username"].Value = Username;
 				command.Parameters["@password"].Value = Password;
 				command.Parameters["@name"].Value = Name;
@@ -447,9 +450,9 @@ namespace Agroflora.DAL
 				command.Parameters["@NTN"].Value = NTN;
 				command.Parameters["@ID"].Value = get_table_count("retailer") + 1;
 
-
 				command.ExecuteNonQuery();
 
+				success = true;
 			}
 			catch (SqlException sq)
 			{
@@ -462,7 +465,7 @@ namespace Agroflora.DAL
 			}
 
 
-			return 0;
+			return success;
 
 		}
 	}
