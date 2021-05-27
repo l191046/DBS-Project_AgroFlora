@@ -1,4 +1,4 @@
---GROUP THETA-JOIN
+-GROUP THETA-JOIN
 --19L-1046
 --19L-1066
 --19L-2359
@@ -290,6 +290,41 @@ ELSE
 END
 GO
 
+Create PROCEDURE retailer_search
+@username	varchar(20),
+@found		int output
+AS
+BEGIN
+IF	EXISTS (
+		   SELECT	*
+		   FROM		Retailer
+		   WHERE	Retailer.UserName = @username
+		   )
+	SET @found = 1
+ELSE
+	SET @found = 0
+END
+GO
+
+
+Create PROCEDURE NTN_check
+@NTN char(13),
+@found int output
+As
+BEGIN
+IF
+	EXISTS(
+			SELECT*
+			FROM Retailer
+			where Retailer.NTN = @NTN
+	)
+	SET @found = 1
+	ELSE
+	SET @found = 0
+END
+GO
+
+
 --HOME PAGE
 CREATE PROCEDURE get_popular_products
 AS
@@ -375,3 +410,26 @@ INSERT INTO Customer ([UserName], [Password], CustomerID, Fname, Lname, Email, [
 values (@username, @password, @customerID, @fname, @lname, @email, @address, @dob)
 END
 GO
+
+
+CREATE PROCEDURE retailer_signup
+@username	varchar(20),
+@password varchar(20),
+@name varchar(20),
+@email varchar(30),
+@address	varchar(50),
+@bankAccount varchar(20),
+@contact char(11),
+@NTN char(13),
+@ID int
+AS
+BEGIN
+
+INSERT INTO Retailer([UserName],[Password],[Name],Email,[Address], BankAccount,Contact,NTN,RetailerID)
+values (@username,@password,@name,@email,@address,@bankAccount,@contact,@NTN,@ID)
+
+END
+GO
+
+
+
