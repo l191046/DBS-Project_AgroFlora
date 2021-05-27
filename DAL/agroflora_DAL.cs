@@ -61,7 +61,7 @@ namespace Agroflora.DAL
 				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
 				//set parameters
 				command.Parameters["@username"].Value = username;
-				
+
 				command.ExecuteNonQuery();
 				if (Convert.ToInt32(command.Parameters["@found"].Value) == 1)
 				{
@@ -76,6 +76,79 @@ namespace Agroflora.DAL
 			{
 				con.Close();
 			}
+			return result;
+		}
+		public bool checkNTN(String inputNTN)
+		{
+			bool result = false;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("NTN_check", con);
+				command.CommandType = CommandType.StoredProcedure;
+				command.Parameters.Add("@NTN", SqlDbType.Char, 13);
+				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+				command.Parameters["@NTN"].Value = inputNTN;
+
+				command.ExecuteNonQuery();
+				if (Convert.ToInt32(command.Parameters["@found"].Value) == 1)
+				{
+					result = true;
+				}
+
+
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+
+		}
+
+		public bool retailer_search(String username)
+		{
+			bool result = false;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("retailer_search", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+				if (Convert.ToInt32(command.Parameters["@found"].Value) == 1)
+				{
+
+					result = true;
+
+				}
+
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL Error: " + e.Message.ToString());
+			}
+
+			finally
+			{
+				con.Close();
+			}
+
+
 			return result;
 		}
 
@@ -298,7 +371,7 @@ namespace Agroflora.DAL
 
 			return found;
 		}
-		
+
 		//SIGN UP PAGES
 		public int customer_signup(string username, string password, string fname, string lname, string email, string address, string dob)
 		{
@@ -341,6 +414,56 @@ namespace Agroflora.DAL
 			}
 
 			return success;
+		}
+
+		public int retailer_signup(string Username, string Password, string Name, string Email, string Address, string bankAccount, string Contact, string NTN, ref DataTable DT)
+		{
+
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("retailer_signup", con);
+				command.CommandType = CommandType.StoredProcedure;
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@password", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@name", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
+				command.Parameters.Add("@bankAccount", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@contact", SqlDbType.Char, 11);
+				command.Parameters.Add("@NTN", SqlDbType.Char, 13);
+				command.Parameters.Add("@ID", SqlDbType.Int);
+
+				command.Parameters["@username"].Value = Username;
+				command.Parameters["@password"].Value = Password;
+				command.Parameters["@name"].Value = Name;
+				command.Parameters["@email"].Value = Email;
+				command.Parameters["@address"].Value = Address;
+				command.Parameters["@bankAccount"].Value = bankAccount;
+				command.Parameters["@contact"].Value = Contact;
+				command.Parameters["@NTN"].Value = NTN;
+				command.Parameters["@ID"].Value = get_table_count("retailer") + 1;
+
+
+				command.ExecuteNonQuery();
+
+			}
+			catch (SqlException sq)
+			{
+				Console.WriteLine("SQL ERROR: " + sq.Message.ToString());
+
+			}
+			finally
+			{
+				con.Close();
+			}
+
+
+			return 0;
+
 		}
 	}
 }
