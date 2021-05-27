@@ -1,4 +1,4 @@
--GROUP THETA-JOIN
+--GROUP THETA-JOIN
 --19L-1046
 --19L-1066
 --19L-2359
@@ -274,7 +274,7 @@ GO
 --STORED PROCEDURES
 
 --UTILITY
-CREATE PROCEDURE customer_search
+CREATE PROCEDURE search_customer
 @username	varchar(20),
 @found		int output
 AS
@@ -289,8 +289,7 @@ ELSE
 	SET @found = 0
 END
 GO
-
-Create PROCEDURE retailer_search
+Create PROCEDURE search_retailer
 @username	varchar(20),
 @found		int output
 AS
@@ -305,9 +304,7 @@ ELSE
 	SET @found = 0
 END
 GO
-
-
-Create PROCEDURE NTN_check
+Create PROCEDURE search_NTN
 @NTN char(13),
 @found int output
 As
@@ -323,7 +320,6 @@ IF
 	SET @found = 0
 END
 GO
-
 
 --HOME PAGE
 CREATE PROCEDURE get_popular_products
@@ -403,15 +399,16 @@ CREATE PROCEDURE customer_signup
 @email		varchar(30),
 @password 	varchar(20),
 @address	varchar(50),
-@dob		date
+@dob		date,
+@contact	char(11)
 AS
-BEGIN
-INSERT INTO Customer ([UserName], [Password], CustomerID, Fname, Lname, Email, [Address], DOB)
-values (@username, @password, @customerID, @fname, @lname, @email, @address, @dob)
-END
+
+IF @contact = ''
+	SET @contact = NULL
+
+INSERT INTO Customer ([UserName], [Password], CustomerID, Fname, Lname, Email, [Address], DOB,Contact, Points)
+values (@username, @password, @customerID, @fname, @lname, @email, @address, @dob,@contact, 0)
 GO
-
-
 CREATE PROCEDURE retailer_signup
 @username	varchar(20),
 @password varchar(20),
@@ -423,13 +420,8 @@ CREATE PROCEDURE retailer_signup
 @NTN char(13),
 @ID int
 AS
-BEGIN
 
 INSERT INTO Retailer([UserName],[Password],[Name],Email,[Address], BankAccount,Contact,NTN,RetailerID)
 values (@username,@password,@name,@email,@address,@bankAccount,@contact,@NTN,@ID)
 
-END
 GO
-
-
-
