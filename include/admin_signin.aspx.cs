@@ -8,11 +8,11 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
 		}
 
 		protected void btn_signin_click(object sender, EventArgs e)
 		{
+			
 			agroflora_DAL objDAL = new agroflora_DAL();
 
 			//get input from webform
@@ -28,7 +28,7 @@ namespace Agroflora
 			}
 			else
 			{
-				ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid Username or Password')", true);
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "error_invalid_credentials()", true);
 			}
 		}
 	}

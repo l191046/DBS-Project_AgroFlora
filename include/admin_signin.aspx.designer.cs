@@ -24,6 +24,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox txt_username;
 
 		/// <summary>
+		/// vld_username control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_username;
+
+		/// <summary>
 		/// txt_password control.
 		/// </summary>
 		/// <remarks>
@@ -33,13 +42,13 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox txt_password;
 
 		/// <summary>
-		/// remember control.
+		/// vld_password control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.CheckBox remember;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_password;
 
 		/// <summary>
 		/// btn_signin control.

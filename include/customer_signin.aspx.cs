@@ -28,7 +28,7 @@ namespace Agroflora
 			}
 			else
 			{
-				ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid Username or Password')", true);
+				Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "error_invalid_credentials()", true);
 			}
 		}
 	}
