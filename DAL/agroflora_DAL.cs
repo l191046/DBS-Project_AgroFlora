@@ -35,6 +35,7 @@ namespace Agroflora.DAL
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
@@ -43,9 +44,12 @@ namespace Agroflora.DAL
 
 			return result;
 		}
-		public bool search_customer(String username)
+		public int search_customer(String username)
 		{
-			bool result = false;
+			//return -1 if server error
+			//return 0 if not found
+			//return 1 if found
+			int result = 0;
 
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -62,10 +66,8 @@ namespace Agroflora.DAL
 				command.Parameters["@username"].Value = username;
 
 				command.ExecuteNonQuery();
-				if (Convert.ToInt32(command.Parameters["@found"].Value) == 1)
-				{
-					result = true;
-				}
+
+				result = Convert.ToInt32(command.Parameters["@found"].Value);
 			}
 			catch (SqlException ex)
 			{
@@ -77,9 +79,12 @@ namespace Agroflora.DAL
 			}
 			return result;
 		}
-		public bool search_NTN(String inputNTN)
+		public int search_NTN(String inputNTN)
 		{
-			bool result = false;
+			//return -1 if server issue
+			//return 0 if not found
+			//return 1 if found
+			int result = 0;
 			
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -94,16 +99,14 @@ namespace Agroflora.DAL
 				command.Parameters["@NTN"].Value = inputNTN;
 
 				command.ExecuteNonQuery();
-				if (Convert.ToInt32(command.Parameters["@found"].Value) == 1)
-				{
-					result = true;
-				}
 
+				result = Convert.ToInt32(command.Parameters["@found"].Value);
 
 			}
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
@@ -113,9 +116,12 @@ namespace Agroflora.DAL
 			return result;
 
 		}
-		public bool search_retailer(String username)
+		public int search_retailer(String username)
 		{
-			bool result = false;
+			//return -1 if server error
+			//return 0 if not found
+			//return 1 if found
+			int result = 0;
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
 			SqlCommand command;
@@ -129,17 +135,14 @@ namespace Agroflora.DAL
 
 				command.Parameters["@username"].Value = username;
 				command.ExecuteNonQuery();
-				if (Convert.ToInt32(command.Parameters["@found"].Value) == 1)
-				{
 
-					result = true;
-
-				}
+				result = Convert.ToInt32(command.Parameters["@found"].Value);
 
 			}
 			catch (SqlException e)
 			{
 				Console.WriteLine("SQL Error: " + e.Message.ToString());
+				result = -1;
 			}
 
 			finally
@@ -239,6 +242,9 @@ namespace Agroflora.DAL
 		//SIGN IN PAGES
 		public int admin_signin(String username, String password, ref DataTable DT)
 		{
+			//return -1 on server side issue
+			//return 0 if not found
+			//return 1 if found
 			int found = 0;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
@@ -274,6 +280,7 @@ namespace Agroflora.DAL
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				found = -1;
 			}
 			finally
 			{
@@ -284,6 +291,9 @@ namespace Agroflora.DAL
 		}
 		public int customer_signin(String username, String password, ref DataTable DT)
 		{
+			//return -1 on server side issue
+			//return 0 if not found
+			//return 1 if found
 			int found = 0;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
@@ -318,6 +328,7 @@ namespace Agroflora.DAL
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				found = -1;
 			}
 			finally
 			{
@@ -328,6 +339,9 @@ namespace Agroflora.DAL
 		}
 		public int retailer_signin(String username, String password, ref DataTable DT)
 		{
+			//return -1 on server side issue
+			//return 0 if not found
+			//return 1 if found
 			int found = 0;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
@@ -362,6 +376,7 @@ namespace Agroflora.DAL
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				found = -1;
 			}
 			finally
 			{
@@ -372,9 +387,11 @@ namespace Agroflora.DAL
 		}
 
 		//SIGN UP PAGES
-		public bool customer_signup(string username, string password, string fname, string lname, string email, string address, string dob, string contact)
+		public int customer_signup(string username, string password, string fname, string lname, string email, string address, string dob, string contact)
 		{
-			bool success = false;
+			//return -1 on server issue
+			//return 1 otherwise
+			int result = -1;
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
 			SqlCommand command;
@@ -405,22 +422,23 @@ namespace Agroflora.DAL
 				
 				command.ExecuteNonQuery();
 
-				success = true;
+				result = 1;
 			}
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
 				con.Close();
 			}
 
-			return success;
+			return result;
 		}
-		public bool retailer_signup(string Username, string Password, string Name, string Email, string Address, string bankAccount, string Contact, string NTN)
+		public int retailer_signup(string Username, string Password, string Name, string Email, string Address, string bankAccount, string Contact, string NTN)
 		{
-			bool success = false;
+			int result = -1;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -452,12 +470,12 @@ namespace Agroflora.DAL
 
 				command.ExecuteNonQuery();
 
-				success = true;
+				result = 1;
 			}
 			catch (SqlException sq)
 			{
 				Console.WriteLine("SQL ERROR: " + sq.Message.ToString());
-
+				result = -1;
 			}
 			finally
 			{
@@ -465,8 +483,217 @@ namespace Agroflora.DAL
 			}
 
 
-			return success;
+			return result;
 
+		}
+
+		//PROFILE PAGES
+
+		public DataSet get_customer(string username)
+		{
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("get_customer", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return resultSet;
+		}
+
+		public DataSet get_admin(string username)
+		{
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("get_admin", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return resultSet;
+		}
+
+		public DataSet get_retailer(string username)
+		{
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("get_retailer", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return resultSet;
+		}
+
+		public DataSet purchase_history(string username)
+		{
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("purchase_history", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return resultSet;
+		}
+
+
+
+		//CATALOGUE
+		public int get_products_category(string category, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+
+			try
+			{
+				command = new SqlCommand("get_products_category", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//estblish parameters
+				command.Parameters.Add("@category", SqlDbType.VarChar, 30);
+				//set parameters
+				command.Parameters["@category"].Value = category;
+
+				command.ExecuteNonQuery();
+				//get output
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+
+			return result;
+		}
+		public int get_product(int productID, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("get_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				//set parameters
+				command.Parameters["@productID"].Value = productID;
+
+				command.ExecuteNonQuery();
+				//get output
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException ex){
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
 		}
 	}
 }
