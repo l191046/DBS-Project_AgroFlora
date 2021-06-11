@@ -105,21 +105,21 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.HyperLink hyper_addproduct;
 
 		/// <summary>
-		/// table_products control.
+		/// grid_products control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTable table_products;
+		protected global::System.Web.UI.WebControls.GridView grid_products;
 
 		/// <summary>
-		/// table_sales control.
+		/// grid_sales control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTable table_sales;
+		protected global::System.Web.UI.WebControls.GridView grid_sales;
 	}
 }

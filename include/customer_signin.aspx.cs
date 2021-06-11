@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using Agroflora.DAL;
-
+using System.Collections;
 namespace Agroflora
 {
 	public partial class customer_signin : System.Web.UI.Page
@@ -35,6 +35,11 @@ namespace Agroflora
 					Session["customer"] = username;
 					Session["admin"] = null;
 					Session["retailer"] = null;
+					ArrayList cartItems = new ArrayList();
+					Session["item"] = cartItems;
+					ArrayList cartQuantity = new ArrayList();
+					Session["quantity"] = cartQuantity;
+
 					Response.Redirect("customer_profile.aspx");
 					break;
 			}

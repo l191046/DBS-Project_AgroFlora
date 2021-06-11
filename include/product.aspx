@@ -31,13 +31,27 @@
                         <th>Description</th>
                         <td id="td_desc" runat="server"></td>
                     </tr>
+                    <tr>
+                        <th>Quantity in stock</th>
+                        <td id="td_quantity" runat="server"></td>
+                    </tr>
                     <tr class="text-center text-muted" style="font-style: italic;">
                         <td id="td_stock" runat="server" colspan="2">IN STOCK</td>
                     </tr>
-                </table>
-              </div>
+                    <tr id="tr_purchaseAmount" runat="server">
+                        <th>Purchase Amount:</th>
+                        <td>
+                            <asp:TextBox ID="quantity" TextMode="Number" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:RangeValidator ID="vld_stock" runat="server" ErrorMessage="Out of range" ControlToValidate="quantity" MinimumValue="1" Type="Integer" CssClass="error" ></asp:RangeValidator>
+                        </td>
+                    </tr>
+                </table>                
 
-              <asp:Button ID="Proceed" class="w-100 btn btn-primary btn-lg" type="submit" runat="server" Text="Add to Cart" />
+                   
+              </div>
+           
+               
+              <asp:Button ID="Proceed" OnClick ="add_onClick" class="w-100 btn btn-primary btn-lg" type="submit" runat="server" Text="Add to Cart" />
             </div>
           </div>
         </div>

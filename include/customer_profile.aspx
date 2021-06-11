@@ -60,7 +60,14 @@
     <!--CUSTOMER PURCHASES-->
     <div class="container pt-5">
         <h1 class="text-center">PURCHASE HISTORY</h1>
-            <asp:GridView id ="grid_history" class="table table-striped table-hover table-bordered"  runat="server">
+            <asp:GridView id ="grid_history" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Name" HeaderText="Name"/>
+                    <asp:BoundField DataField="Quantity" HeaderText="Quantity"/>
+                    <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"/>
+                    <asp:BoundField DataField="Payment Type" HeaderText="Payment Type"/>
+                    <asp:BoundField DataField="Total Amount" HeaderText="Total Amount"/>
+                </Columns>
             </asp:GridView>
     </div>
 

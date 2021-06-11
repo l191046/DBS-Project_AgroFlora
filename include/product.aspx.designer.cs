@@ -69,6 +69,15 @@ namespace Agroflora
 		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_desc;
 
 		/// <summary>
+		/// td_quantity control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_quantity;
+
+		/// <summary>
 		/// td_stock control.
 		/// </summary>
 		/// <remarks>
@@ -76,6 +85,33 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_stock;
+
+		/// <summary>
+		/// tr_purchaseAmount control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_purchaseAmount;
+
+		/// <summary>
+		/// quantity control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox quantity;
+
+		/// <summary>
+		/// vld_stock control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RangeValidator vld_stock;
 
 		/// <summary>
 		/// Proceed control.

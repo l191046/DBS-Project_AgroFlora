@@ -53,53 +53,32 @@
         <div class="container text-center pb-3">
             <asp:HyperLink ID="hyper_addproduct" runat="server" href="product_add.aspx" CssClass="btn btn-primary" role="button">Add Product</asp:HyperLink>
         </div>
-                
-            <table class="table table-striped table-hover table-bordered" id="table_products" runat="server">
-                <thead>
-                    <tr>
-                        <th>Product name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Date added</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Product</td>
-                        <td>Category</td>
-                        <td>X</td>
-                        <td>X</td>
-                        <td>1/1/2021</td>
-                    </tr>
-                </tbody>
-    
-            </table>
+
+
+        <asp:GridView id ="grid_products" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="Name" HeaderText="Product Name"/>
+                <asp:BoundField DataField="Category" HeaderText="Category"/>
+                <asp:BoundField DataField="Price" HeaderText="Price"/>
+                <asp:BoundField DataField="Stock" HeaderText="Stock"/>
+                <asp:BoundField DataField="Date Added" HeaderText="Date Added" DataFormatString="{0:dd/MM/yyyy}"/>
+            </Columns>
+        </asp:GridView>
     </div>
     <hr>
 
     <!--RETAILER SALES-->
     <div class="container pt-5">
         <h1 class="text-center">SALES HISTORY</h1>
-            <table class="table table-striped table-hover table-bordered" id="table_sales" runat="server">
-                <thead>
-                    <tr>
-                        <th>Product name</th>
-                        <th>Quantity sold</th>
-                        <th>Date sold</th>
-                        <th>Total earnings</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Product</td>
-                        <td>X</td>
-                        <td>1/1/2021</td>
-                        <td>X</td>
-                    </tr>
-                </tbody>
-    
-            </table>
+
+        <asp:GridView id ="grid_sales" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="Date" HeaderText="Date Sold" DataFormatString="{0:dd/MM/yyyy}"/>
+                <asp:BoundField DataField="Name" HeaderText="Product Name"/>
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity Sold"/>
+                <asp:BoundField DataField="Total" HeaderText="Total Earned"/>
+            </Columns>
+        </asp:GridView>
     </div>
        
 </asp:Content>

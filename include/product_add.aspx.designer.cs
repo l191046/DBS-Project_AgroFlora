@@ -51,6 +51,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.DropDownList drop_category;
 
 		/// <summary>
+		/// file_image control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputFile file_image;
+
+		/// <summary>
 		/// txt_description control.
 		/// </summary>
 		/// <remarks>
@@ -60,13 +69,13 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox txt_description;
 
 		/// <summary>
-		/// submit control.
+		/// btn_submit control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button submit;
+		protected global::System.Web.UI.WebControls.Button btn_submit;
 
 		/// <summary>
 		/// vld_productname control.

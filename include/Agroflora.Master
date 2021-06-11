@@ -56,6 +56,9 @@
                                 <li><asp:HyperLink ID="hyper_admin_profile" runat="server" href="admin_profile.aspx" CssClass="dropdown-item">Admin</asp:HyperLink></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <asp:HyperLink ID="HyperLink2" runat="server" href="checkout.aspx" CssClass="nav-link active">Checkout</asp:HyperLink>
+                        </li>
                         <li class="nav-item dropdown">
                             <asp:HyperLink ID="hyper_signup" runat="server" href="#" CssClass="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</asp:HyperLink>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -72,7 +75,7 @@
                             <div class="col">
                                 <div class="d-inline-flex">
                                     <asp:TextBox ID="txt_search" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Button ID="btn_search" runat="server" Text="Search" CssClass="btn btn-success" />
+                                    <asp:Button ID="btn_search" runat="server" Text="Search" CssClass="btn btn-success" OnClick="btn_search_Click" />
                                 </div>
                             </div>
                         </div>

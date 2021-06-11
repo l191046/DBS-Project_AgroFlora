@@ -15,120 +15,57 @@ namespace Agroflora
 	{
 
 		/// <summary>
-		/// product control.
+		/// h3_current control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableHeaderCell product;
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3_current;
 
 		/// <summary>
-		/// retailer control.
+		/// h3_no_current control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableHeaderCell retailer;
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3_no_current;
 
 		/// <summary>
-		/// price control.
+		/// grid_current control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableHeaderCell price;
+		protected global::System.Web.UI.WebControls.GridView grid_current;
 
 		/// <summary>
-		/// category control.
+		/// hr_removed control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableHeaderCell category;
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_removed;
 
 		/// <summary>
-		/// date control.
+		/// h3_removed control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableHeaderCell date;
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h3_removed;
 
 		/// <summary>
-		/// Allowed control.
+		/// grid_removed control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableHeaderCell Allowed;
-
-		/// <summary>
-		/// Productname control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableCell Productname;
-
-		/// <summary>
-		/// retailername control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableCell retailername;
-
-		/// <summary>
-		/// priceproduct control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableCell priceproduct;
-
-		/// <summary>
-		/// categoryname control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableCell categoryname;
-
-		/// <summary>
-		/// DateAdded control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableCell DateAdded;
-
-		/// <summary>
-		/// AllowedCell control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TableCell AllowedCell;
-
-		/// <summary>
-		/// AllowedProduct control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.CheckBox AllowedProduct;
+		protected global::System.Web.UI.WebControls.GridView grid_removed;
 	}
 }

@@ -14,7 +14,7 @@ namespace Agroflora
 		protected void load_products()
 		{
 			String category = Request.QueryString["Category"];
-			if(category == null)
+			if (category == null)
 			{
 				category = "Plant";
 			}
@@ -32,10 +32,6 @@ namespace Agroflora
 				repeater_products.DataBind();
 				h1_category.InnerHtml = category + "s";
 			}
-		}
-		protected void link_products()
-		{
-
 		}
 	}
 }

@@ -18,7 +18,6 @@
             <div class="col">
                 <div class="card shadow-sm">
                     <asp:HyperLink ID="hyper_product" runat="server" NavigateUrl='<%# Eval("ProductID","~/Product.aspx?PID={0}") %>'>
-                        <%--"catalogue.aspx?Category=Plant"--%>
                         <div class="text-center">
                             <asp:Image ID="img_newproduct" runat="server" src=<%# Eval("Image") %> CssClass="img-fluid card-img-top" onerror="this.src='images/logo_large.png'" AlternateText="Product_Image"/>
                         </div>

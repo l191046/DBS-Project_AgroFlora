@@ -13,5 +13,11 @@ namespace Agroflora
 		{
 
 		}
+
+		protected void btn_search_Click(object sender, EventArgs e)
+		{
+			string search = txt_search.Text;
+			Response.Redirect("search.aspx?SEARCH=" + search);
+		}
 	}
 }

@@ -186,6 +186,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.HyperLink hyper_admin_profile;
 
 		/// <summary>
+		/// HyperLink2 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+
+		/// <summary>
 		/// hyper_signup control.
 		/// </summary>
 		/// <remarks>

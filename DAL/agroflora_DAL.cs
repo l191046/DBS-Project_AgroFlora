@@ -155,33 +155,6 @@ namespace Agroflora.DAL
 		}
 
 		//HOME PAGE
-		public DataSet show_products()
-		{
-			DataSet resultSet = new DataSet();
-			SqlConnection con = new SqlConnection(connectionString);
-			con.Open();
-			SqlCommand command;
-
-			try
-			{
-				command = new SqlCommand("SELECT * FROM Product", con);
-				command.CommandType = CommandType.Text;
-				using (SqlDataAdapter da = new SqlDataAdapter(command))
-				{
-					da.Fill(resultSet);
-				}
-			}
-			catch (SqlException ex)
-			{
-				Console.WriteLine("SQL ERROR:" + ex.Message.ToString());
-			}
-			finally
-			{
-				con.Close();
-			}
-
-			return resultSet;
-		}
 		public DataSet get_popular_products()
 		{
 			DataSet resultSet = new DataSet();
@@ -488,9 +461,9 @@ namespace Agroflora.DAL
 		}
 
 		//PROFILE PAGES
-
-		public DataSet get_customer(string username)
+		public int get_customer(string username, ref DataTable DT)
 		{
+			int result = -1;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -508,21 +481,24 @@ namespace Agroflora.DAL
 				{
 					da.Fill(resultSet);
 				}
+				DT = resultSet.Tables[0];
+				result = 1;
 			}
 			catch (SqlException e)
 			{
 				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
 				con.Close();
 			}
 
-			return resultSet;
+			return result;
 		}
-
-		public DataSet get_admin(string username)
+		public int get_admin(string username, ref DataTable DT)
 		{
+			int result = -1;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -540,21 +516,24 @@ namespace Agroflora.DAL
 				{
 					da.Fill(resultSet);
 				}
+				DT = resultSet.Tables[0];
+				result = 1;
 			}
 			catch (SqlException e)
 			{
 				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
 				con.Close();
 			}
 
-			return resultSet;
+			return result;
 		}
-
-		public DataSet get_retailer(string username)
+		public int get_retailer(string username, ref DataTable DT)
 		{
+			int result = -1;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -572,21 +551,59 @@ namespace Agroflora.DAL
 				{
 					da.Fill(resultSet);
 				}
+				DT = resultSet.Tables[0];
+				result = 1;
 			}
 			catch (SqlException e)
 			{
 				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
 				con.Close();
 			}
 
-			return resultSet;
+			return result;
 		}
-
-		public DataSet purchase_history(string username)
+		
+		public int get_retailerID(string username)
 		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("get_retailerID", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				result = Convert.ToInt32(resultSet.Tables[0].Rows[0]["retailerID"]);
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int purchase_history(string username, ref DataTable DT)
+		{
+			int result = -1;
 			DataSet resultSet = new DataSet();
 			SqlConnection con = new SqlConnection(connectionString);
 			con.Open();
@@ -604,20 +621,140 @@ namespace Agroflora.DAL
 				{
 					da.Fill(resultSet);
 				}
+				DT = resultSet.Tables[0];
+				result = 1;
 			}
 			catch (SqlException e)
 			{
 				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
 			}
 			finally
 			{
 				con.Close();
 			}
 
-			return resultSet;
+			return result;
 		}
+		public int add_product(int retailerID, string name, float price, int categoryID, int stock, string description, string dateAdded, string image)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("add_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				command.Parameters.Add("@retailerID", SqlDbType.Int);
+				command.Parameters.Add("@name", SqlDbType.VarChar, 40);
+				command.Parameters.Add("@price", SqlDbType.Float);
+				command.Parameters.Add("@categoryID", SqlDbType.Int);
+				command.Parameters.Add("@stock", SqlDbType.Int);
+				command.Parameters.Add("@desc", SqlDbType.VarChar, 300);
+				command.Parameters.Add("@dateAdded", SqlDbType.Date);
+				command.Parameters.Add("@image", SqlDbType.VarChar, 200);
+				//set parameters
+				command.Parameters["@productID"].Value = get_table_count("Product") + 1;
+				command.Parameters["@retailerID"].Value = retailerID;
+				command.Parameters["@name"].Value = name;
+				command.Parameters["@price"].Value = price;
+				command.Parameters["@categoryID"].Value = categoryID;
+				command.Parameters["@stock"].Value = stock;
+				command.Parameters["@desc"].Value = description;
+				command.Parameters["@dateAdded"].Value = dateAdded;
+				command.Parameters["@image"].Value = image;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
 
 
+			return result;
+		}
+		public int product_history(string username, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("product_history", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				//set parameters
+				command.Parameters["@username"].Value = username;
+
+				command.ExecuteNonQuery();
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL ERROR : " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int sale_history(string username, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("sale_history", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				//set parameters
+				command.Parameters["@username"].Value = username;
+
+				command.ExecuteNonQuery();
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL ERROR : " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
 
 		//CATALOGUE
 		public int get_products_category(string category, ref DataTable DT)
@@ -695,5 +832,282 @@ namespace Agroflora.DAL
 
 			return result;
 		}
+		public int search_product(string product, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("search_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@product", SqlDbType.VarChar, 50);
+				//set parameters
+				command.Parameters["@product"].Value = product;
+
+				command.ExecuteNonQuery();
+				//get output
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+
+		//SPECIALIZED FUNCTIONS
+		public int get_current_products(ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("get_current_products", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.ExecuteNonQuery();
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = DT.Rows.Count;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+
+			return result;
+		}
+		public int get_removed_products(ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("get_removed_products", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.ExecuteNonQuery();
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = DT.Rows.Count;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+
+			return result;
+		}
+		public int remove_product(int productID)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("remove_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				//set parameters
+				command.Parameters["@productID"].Value = productID;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int restore_product(int productID)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("restore_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				//set parameters
+				command.Parameters["@productID"].Value = productID;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL Error: " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+
+		public int add_purchase(int PurchaseID, int CustomerID, int ProductID, int Quantity, int PaymentType)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("add_purchase", con);
+				command.CommandType = CommandType.StoredProcedure;
+				command.Parameters.Add("@PurchaseID", SqlDbType.Int);
+				command.Parameters.Add("@CustomerID", SqlDbType.Int);
+				command.Parameters.Add("@ProductID", SqlDbType.Int);
+				command.Parameters.Add("@Quantity", SqlDbType.Int);
+				command.Parameters.Add("@Date", SqlDbType.DateTime);
+				command.Parameters.Add("@PaymentType", SqlDbType.Int);
+
+
+				command.Parameters["@PurchaseID"].Value = PurchaseID;
+				command.Parameters["@CustomerID"].Value = CustomerID;
+				command.Parameters["@ProductID"].Value = ProductID;
+				command.Parameters["@Quantity"].Value = Quantity;
+				command.Parameters["@Date"].Value = DateTime.Now;
+				command.Parameters["@PaymentType"].Value = PaymentType;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR: " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+			return result;
+
+		}
+		public int get_stock(int ProductID)
+		{
+
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("get_stock", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@ProductID", SqlDbType.Int);
+				command.Parameters["@ProductID"].Value = ProductID;
+
+				command.Parameters.Add("@ret", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+				command.ExecuteNonQuery();
+
+				result = Convert.ToInt32(command.Parameters["@ret"].Value);
+
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR: " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+			return result;
+
+
+		}
+		public int update_stock(int ProductID, int val)
+		{
+
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("update_stock", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@ProductID", SqlDbType.Int);
+				command.Parameters["@ProductID"].Value = ProductID;
+
+				command.Parameters.Add("@val", SqlDbType.Int);
+				command.Parameters["@val"].Value = val;
+
+				command.ExecuteNonQuery();
+
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR: " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+			return result;
+		}
+
 	}
 }

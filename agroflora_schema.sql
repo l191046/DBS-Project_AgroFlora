@@ -320,7 +320,13 @@ IF
 	SET @found = 0
 END
 GO
-
+CREATE PROCEDURE get_retailerID
+@username	varchar(20)
+AS
+	SELECT	Retailer.RetailerID
+	FROM	Retailer
+	WHERE	Retailer.[UserName] = @username
+GO
 --HOME PAGE
 CREATE PROCEDURE get_popular_products
 AS
@@ -328,6 +334,7 @@ AS
 	FROM	Product
 			LEFT JOIN Rating ON Product.ProductID = Rating.productID
 	WHERE	Rating.score IS NOT NULL
+			AND Product.[Status] = 1
 			AND 4 <= (
 					 SELECT MIN(R.score)
 					 FROM	Rating R
@@ -340,6 +347,7 @@ CREATE PROCEDURE get_new_products
 AS
 	SELECT	TOP 3 Product.ProductID, Product.[Name], Product.DateAdded, Product.[Image]
 	FROM	Product
+	WHERE	Product.[Status] = 1
 	ORDER BY Product.DateAdded DESC
 GO
 
@@ -447,6 +455,15 @@ FROM	Product
 WHERE	Product.ProductID = @productID
 GO
 
+CREATE PROCEDURE search_product
+@product	varchar(50)
+AS
+	SELECT	Product.ProductID, Product.[Name], Product.[Image]
+	FROM	Product
+	WHERE	Product.[Name] LIKE @product
+			AND Product.[Status] = 1
+GO
+
 --PROFILE PAGES
 CREATE PROCEDURE get_customer
 @username varchar(20)
@@ -481,3 +498,109 @@ AS
 	Inner Join PaymentType on  PaymentType.PaymentTypeID = Purchase.PaymentType 
 	where [Customer].UserName = @username
 GO
+
+CREATE PROCEDURE product_history
+@username	varchar(20)
+AS
+	SELECT	Product.[Name], Category.[Name] AS [Category], Product.Price, Product.Stock, Product.DateAdded AS [Date added]
+	FROM	Product
+			INNER JOIN Retailer ON Product.RetailerID = Retailer.RetailerID
+			INNER JOIN Category ON Product.CategoryID = Category.categoryID
+	WHERE	Retailer.UserName = @username
+GO
+
+CREATE PROCEDURE sale_history
+@username	varchar(20)
+AS
+SELECT	Product.[Name], Purchase.Quantity, Purchase.[Date], Purchase.Quantity*Product.Price AS [Total]
+FROM	Purchase
+		INNER JOIN Product ON Purchase.ProductID = Product.ProductID
+		INNER JOIN Retailer ON Product.RetailerID = Retailer.RetailerID
+
+WHERE	Retailer.UserName = @username
+ORDER BY Purchase.[Date] DESC
+GO
+
+--SPECIALIZED FUNCTIONS
+CREATE PROCEDURE get_current_products
+AS
+	SELECT	Product.ProductID, Retailer.[Name] AS [Retailer], Product.[Name] AS [Product],
+			Product.Price, Category.[Name] AS [Category], Product.DateAdded
+	FROM	Product
+			INNER JOIN Retailer ON Product.RetailerID = Retailer.RetailerID
+			INNER JOIN Category ON Product.CategoryID = Category.categoryID
+	WHERE	Product.[Status] = 1;
+GO
+
+CREATE PROCEDURE get_removed_products
+AS
+	SELECT	Product.ProductID, Retailer.[Name] AS [Retailer], Product.[Name] AS [Product],
+			Product.Price, Category.[Name] AS [Category], Product.DateAdded
+	FROM	Product
+			INNER JOIN Retailer ON Product.RetailerID = Retailer.RetailerID
+			INNER JOIN Category ON Product.CategoryID = Category.categoryID
+	WHERE	Product.[Status] = 0;
+GO
+
+CREATE PROCEDURE remove_product
+@productID	int
+AS
+	UPDATE Product
+	SET		Product.[Status] = 0
+	WHERE	Product.ProductID = @productID
+GO
+
+CREATE PROCEDURE restore_product
+@productID	int
+AS
+	UPDATE Product
+	SET		Product.[Status] = 1
+	WHERE	Product.ProductID = @productID
+GO
+
+CREATE PROCEDURE add_product
+@productID	int,
+@retailerID	int,
+@name		varchar(40),
+@price		float,
+@categoryID	int,
+@stock		int,
+@desc		varchar(300),
+@dateAdded	date,
+@image		varchar(200)
+AS
+INSERT INTO Product VALUES
+(@productID, @retailerID, @name, @price, @categoryID, @stock, @desc, @dateAdded, @image, 1)
+GO
+
+CREATE PROCEDURE add_purchase
+@PurchaseID int,
+@CustomerID int,
+@ProductID int,
+@Quantity int,
+@Date datetime,
+@PaymentType int
+AS
+	INSERT INTO Purchase VALUES
+	(@PurchaseID,@CustomerID,@ProductID,@Quantity,@Date,@PaymentType)
+GO
+
+CREATE PROCEDURE get_stock
+@ProductID int,
+@ret int output
+AS
+	SET @ret= (Select Product.Stock
+	FROM Product
+	WHERE Product.ProductID = @ProductID)
+GO
+
+CREATE PROCEDURE update_stock
+@ProductID int,
+@val int
+AS
+	UPDATE product
+	SET Product.Stock = @val
+	WHERE Product.ProductID = @ProductID;
+GO
+
+--TEMP
