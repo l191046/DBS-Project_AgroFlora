@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="Agroflora.checkout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora_user.Master" AutoEventWireup="true" CodeBehind="checkout.aspx.cs" Inherits="Agroflora.checkout" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="text-center pt-5 pb-3">
@@ -58,10 +58,9 @@
                         <asp:GridView ID="grid_products" OnRowCommand="grid_cart_rowCommand" AutoGenerateColumns="false" class="table table-striped table-hover table-bordered" runat="server">
                             <Columns>
 
-                            <asp:BoundField DataField="ProductID" HeaderText="ProductID" />
-                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
                             <asp:BoundField DataField="Name" HeaderText="Name" />
-                            <asp:BoundField DataField="Total" HeaderText="Total" />
+                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                            <asp:BoundField DataField="Price" HeaderText="Price" />
 
                             <asp:TemplateField HeaderText="Action" HeaderStyle-CssClass="text-center">
 			                    <ItemStyle HorizontalAlign="Center" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora.Master" AutoEventWireup="true" CodeBehind="product_remove.aspx.cs" Inherits="Agroflora.product_remove" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora_user.Master" AutoEventWireup="true" CodeBehind="product_remove.aspx.cs" Inherits="Agroflora.product_remove" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="text-center pt-5 pb-3">
         <img class="img-fluid"  src="images\logo_small.png" alt="logo.png">

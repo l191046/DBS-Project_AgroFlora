@@ -57,7 +57,7 @@ namespace Agroflora
 				Session["item"] = cartItems;
 				Session["quantity"] = cartQuantity;
 
-				Response.Redirect("home.aspx");
+				Response.Redirect("home_user.aspx");
 			}	
 		}
 
@@ -114,7 +114,7 @@ namespace Agroflora
 			dt.Columns.Add("ProductID");
 			dt.Columns.Add("Quantity");
 			dt.Columns.Add("Name");
-			dt.Columns.Add("Total");
+			dt.Columns.Add("Price");
 			int total = 0;
 			for (int i = 0; i < cartItems.Count; i++)
 			{
@@ -134,7 +134,7 @@ namespace Agroflora
 				total += Int32.Parse(Price) * Quantity;
 
 				workRow["Name"] = Name;
-				workRow["Total"] = Price;
+				workRow["Price"] = Price;
 
 
 

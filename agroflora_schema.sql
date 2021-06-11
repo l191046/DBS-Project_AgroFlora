@@ -603,4 +603,12 @@ AS
 	WHERE Product.ProductID = @ProductID;
 GO
 
---TEMP
+CREATE PROCEDURE get_ratings
+@productID int
+AS
+	Select	Customer.UserName AS [Name],Rating.score AS [Rating],Rating.review AS [Review]
+	FROM	Product
+			INNER JOIN Rating On Product.ProductID=Rating.productID
+			INNER JOIN Customer ON Customer.CustomerID=Rating.customerID
+	WHERE	Product.ProductID=@productID
+GO

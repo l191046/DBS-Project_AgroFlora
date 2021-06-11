@@ -11,7 +11,7 @@ namespace Agroflora
 {
 
 
-	public partial class Agroflora
+	public partial class Agroflora_user
 	{
 
 		/// <summary>
@@ -114,67 +114,31 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.HyperLink hyper_other;
 
 		/// <summary>
-		/// dropdown_signin control.
+		/// hyper_profile control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink dropdown_signin;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_profile;
 
 		/// <summary>
-		/// hyper_customer_signin control.
+		/// hyper_logout control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_customer_signin;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_logout;
 
 		/// <summary>
-		/// hyper_retailer_signin control.
+		/// hyper_checkout control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_retailer_signin;
-
-		/// <summary>
-		/// hyper_admin control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_admin;
-
-		/// <summary>
-		/// hyper_signup control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_signup;
-
-		/// <summary>
-		/// hyper_customer_signup control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_customer_signup;
-
-		/// <summary>
-		/// hyper_retailer_signup control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_retailer_signup;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_checkout;
 
 		/// <summary>
 		/// txt_search control.

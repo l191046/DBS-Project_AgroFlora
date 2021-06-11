@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora.Master" AutoEventWireup="true" CodeBehind="catalogue.aspx.cs" Inherits="Agroflora.catalogue" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora_user.Master" AutoEventWireup="true" CodeBehind="search_user.aspx.cs" Inherits="Agroflora.search_user" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="text-center pt-5 pb-3">
         <asp:Image ID="img_logo_small" runat="server" src="images\logo_small.png" AlternateText="logo.png" CssClass="img-fluid"/>
-        <h1 id="h1_category" runat="server">Category</h1>
+        <h3 id="h3_search" runat="server">Search Results For:</h3>
     </div>
 
     <%--REPEATER ELEMENT--%>
@@ -17,13 +19,13 @@
         <ItemTemplate>
             <div class="col">
                 <div class="card shadow-sm">
-                    <asp:HyperLink ID="hyper_product" runat="server" NavigateUrl='<%# Eval("ProductID","~/Product.aspx?PID={0}") %>'>
+                    <asp:HyperLink ID="hyper_product" runat="server" NavigateUrl='<%# Eval("ProductID","~/product_user.aspx?PID={0}") %>'>
                         <div class="text-center">
                             <asp:Image ID="img_newproduct" runat="server" src=<%# Eval("Image") %> CssClass="img-fluid card-img-top" onerror="this.src='images/logo_large.png'" AlternateText="Product_Image"/>
                         </div>
                     </asp:HyperLink>
                     <div class="card-body">
-                        <asp:HyperLink ID="hyper_product_title" runat="server" NavigateUrl='<%# Eval("ProductID","~/Product.aspx?PID={0}") %>'>
+                        <asp:HyperLink ID="hyper_product_title" runat="server" NavigateUrl='<%# Eval("ProductID","~/product_user.aspx?PID={0}") %>'>
                             <h4 id="h_product" runat="server"  class="card-title" style="text-align: center;"><%# Eval("Name") %></h4>
                         </asp:HyperLink>
                     </div>
@@ -38,4 +40,6 @@
         </FooterTemplate>
     </asp:Repeater>
 
+
 </asp:Content>
+

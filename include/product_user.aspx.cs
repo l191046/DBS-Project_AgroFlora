@@ -11,10 +11,15 @@ using System.Collections;
 
 namespace Agroflora
 {
-	public partial class product : System.Web.UI.Page
+	public partial class product_user : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if(Session["customer"] == null)
+			{
+				tr_purchaseAmount.Visible = false;
+				btn_proceed.Visible = false;	
+			}
 			load_product();
 			load_ratings();
 		}
@@ -50,7 +55,49 @@ namespace Agroflora
 				td_desc.InnerHtml = DT.Rows[0]["Description"].ToString();
 				int stock = Int32.Parse(DT.Rows[0]["Stock"].ToString());
 				td_quantity.InnerHtml = stock.ToString();
+				if (stock > 0)
+				{
+					vld_stock.MaximumValue = stock.ToString();
+				}
+				else
+				{
+					td_stock.InnerHtml = "OUT OF STOCK";
+					vld_stock.MaximumValue = "0";
+					vld_stock.MinimumValue = "0";
+					quantity.Visible = false;
+					btn_proceed.Visible = false;
+					tr_purchaseAmount.Visible = false;
+				}
 			}
+
+		}
+
+		protected void add_onClick(object sender, EventArgs e)
+		{
+
+			agroflora_DAL objDal = new agroflora_DAL();
+			ArrayList cartItems = new ArrayList();
+			ArrayList cartQuantity = new ArrayList();
+			cartItems = (ArrayList)Session["item"];
+			cartQuantity = (ArrayList)Session["quantity"];
+
+			if (Request.QueryString["PID"] == null)
+			{
+				return;
+			}
+
+			int ProductID = Int32.Parse(Request.QueryString["PID"]);
+
+
+			int q = Int32.Parse(quantity.Text);
+
+			cartItems.Add(ProductID);
+			cartQuantity.Add(q);
+
+			Session["item"] = cartItems;
+			Session["quantity"] = cartQuantity;
+
+			Response.Redirect("catalogue_user.aspx");
 
 		}
 
@@ -78,5 +125,6 @@ namespace Agroflora
 				grid_ratings.DataBind();
 			}
 		}
+
 	}
 }

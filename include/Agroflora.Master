@@ -13,7 +13,6 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-
 <body>
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
@@ -46,18 +45,6 @@
                                 <li><hr class="dropdown-divider"/></li>
                                 <li><asp:HyperLink ID="hyper_admin" runat="server" href="admin_signin.aspx" CssClass="dropdown-item">Admin</asp:HyperLink></li>
                             </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <asp:HyperLink ID="hyper_profile" runat="server" href="#" CssClass="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</asp:HyperLink>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><asp:HyperLink ID="hyper_customer_profile" runat="server" href="customer_profile.aspx" CssClass="dropdown-item">Customer</asp:HyperLink></li>
-                                <li><asp:HyperLink ID="hyper_retailer_profile" runat="server" href="retailer_profile.aspx" CssClass="dropdown-item">Retailer</asp:HyperLink></li>
-                                <li><hr class="dropdown-divider"/></li>
-                                <li><asp:HyperLink ID="hyper_admin_profile" runat="server" href="admin_profile.aspx" CssClass="dropdown-item">Admin</asp:HyperLink></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <asp:HyperLink ID="HyperLink2" runat="server" href="checkout.aspx" CssClass="nav-link active">Checkout</asp:HyperLink>
                         </li>
                         <li class="nav-item dropdown">
                             <asp:HyperLink ID="hyper_signup" runat="server" href="#" CssClass="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign up</asp:HyperLink>

@@ -1109,5 +1109,43 @@ namespace Agroflora.DAL
 			return result;
 		}
 
+		//Ratings
+		public int get_rating(int productID, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("get_ratings", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				//set parameters
+				command.Parameters["@productID"].Value = productID;
+
+				command.ExecuteNonQuery();
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine("SQL ERROR : " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+
 	}
 }

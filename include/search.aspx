@@ -19,13 +19,13 @@
         <ItemTemplate>
             <div class="col">
                 <div class="card shadow-sm">
-                    <asp:HyperLink ID="hyper_product" runat="server" NavigateUrl='<%# Eval("ProductID","~/Product.aspx?PID={0}") %>'>
+                    <asp:HyperLink ID="hyper_product" runat="server" NavigateUrl='<%# Eval("ProductID","~/product.aspx?PID={0}") %>'>
                         <div class="text-center">
                             <asp:Image ID="img_newproduct" runat="server" src=<%# Eval("Image") %> CssClass="img-fluid card-img-top" onerror="this.src='images/logo_large.png'" AlternateText="Product_Image"/>
                         </div>
                     </asp:HyperLink>
                     <div class="card-body">
-                        <asp:HyperLink ID="hyper_product_title" runat="server" NavigateUrl='<%# Eval("ProductID","~/Product.aspx?PID={0}") %>'>
+                        <asp:HyperLink ID="hyper_product_title" runat="server" NavigateUrl='<%# Eval("ProductID","~/product.aspx?PID={0}") %>'>
                             <h4 id="h_product" runat="server"  class="card-title" style="text-align: center;"><%# Eval("Name") %></h4>
                         </asp:HyperLink>
                     </div>

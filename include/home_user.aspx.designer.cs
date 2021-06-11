@@ -11,223 +11,232 @@ namespace Agroflora
 {
 
 
-	public partial class Agroflora
+	public partial class home_user
 	{
 
 		/// <summary>
-		/// head control.
+		/// title_logo control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+		protected global::System.Web.UI.WebControls.Image title_logo;
 
 		/// <summary>
-		/// form1 control.
+		/// hyper_newproduct1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_newproduct1;
 
 		/// <summary>
-		/// hyper_agroflora control.
+		/// img_newproduct1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_agroflora;
+		protected global::System.Web.UI.WebControls.Image img_newproduct1;
 
 		/// <summary>
-		/// hyper_home control.
+		/// label_newproduct1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_home;
+		protected global::System.Web.UI.WebControls.Label label_newproduct1;
 
 		/// <summary>
-		/// dropdown_catalogue control.
+		/// label_newproductdate1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink dropdown_catalogue;
+		protected global::System.Web.UI.WebControls.Label label_newproductdate1;
 
 		/// <summary>
-		/// hyper_plants control.
+		/// hyper_newproduct2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_plants;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_newproduct2;
 
 		/// <summary>
-		/// hyper_seeds control.
+		/// img_newproduct2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_seeds;
+		protected global::System.Web.UI.WebControls.Image img_newproduct2;
 
 		/// <summary>
-		/// hyper_fertilizer control.
+		/// label_newproduct2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_fertilizer;
+		protected global::System.Web.UI.WebControls.Label label_newproduct2;
 
 		/// <summary>
-		/// hyper_pots control.
+		/// label_newproductdate2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_pots;
+		protected global::System.Web.UI.WebControls.Label label_newproductdate2;
 
 		/// <summary>
-		/// hyper_tools control.
+		/// hyper_newproduct3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_tools;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_newproduct3;
 
 		/// <summary>
-		/// hyper_other control.
+		/// img_newproduct3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_other;
+		protected global::System.Web.UI.WebControls.Image img_newproduct3;
 
 		/// <summary>
-		/// dropdown_signin control.
+		/// label_newproduct3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink dropdown_signin;
+		protected global::System.Web.UI.WebControls.Label label_newproduct3;
 
 		/// <summary>
-		/// hyper_customer_signin control.
+		/// label_newproductdate3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_customer_signin;
+		protected global::System.Web.UI.WebControls.Label label_newproductdate3;
 
 		/// <summary>
-		/// hyper_retailer_signin control.
+		/// hyper_popproduct1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_retailer_signin;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_popproduct1;
 
 		/// <summary>
-		/// hyper_admin control.
+		/// img_popproduct1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_admin;
+		protected global::System.Web.UI.WebControls.Image img_popproduct1;
 
 		/// <summary>
-		/// hyper_signup control.
+		/// label_popproduct1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_signup;
+		protected global::System.Web.UI.WebControls.Label label_popproduct1;
 
 		/// <summary>
-		/// hyper_customer_signup control.
+		/// label_popproductdate1 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_customer_signup;
+		protected global::System.Web.UI.WebControls.Label label_popproductdate1;
 
 		/// <summary>
-		/// hyper_retailer_signup control.
+		/// hyper_popproduct2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_retailer_signup;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_popproduct2;
 
 		/// <summary>
-		/// txt_search control.
+		/// img_popproduct2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txt_search;
+		protected global::System.Web.UI.WebControls.Image img_popproduct2;
 
 		/// <summary>
-		/// btn_search control.
+		/// label_popproduct2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btn_search;
+		protected global::System.Web.UI.WebControls.Label label_popproduct2;
 
 		/// <summary>
-		/// MainContent control.
+		/// label_popproductdate2 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+		protected global::System.Web.UI.WebControls.Label label_popproductdate2;
 
 		/// <summary>
-		/// hyper_privacy control.
+		/// hyper_popproduct3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_privacy;
+		protected global::System.Web.UI.WebControls.HyperLink hyper_popproduct3;
 
 		/// <summary>
-		/// hyper_terms control.
+		/// img_popproduct3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_terms;
+		protected global::System.Web.UI.WebControls.Image img_popproduct3;
 
 		/// <summary>
-		/// hyper_support control.
+		/// label_popproduct3 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink hyper_support;
+		protected global::System.Web.UI.WebControls.Label label_popproduct3;
+
+		/// <summary>
+		/// label_popproductdate3 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label label_popproductdate3;
 	}
 }

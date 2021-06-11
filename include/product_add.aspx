@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora.Master" AutoEventWireup="true" CodeBehind="product_add.aspx.cs" Inherits="Agroflora.product_add" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Agroflora_user.Master" AutoEventWireup="true" CodeBehind="product_add.aspx.cs" Inherits="Agroflora.product_add" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="validation.js"></script>
 </asp:Content>

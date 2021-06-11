@@ -11,7 +11,7 @@ namespace Agroflora
 {
 
 
-	public partial class product
+	public partial class product_user
 	{
 
 		/// <summary>
@@ -94,5 +94,41 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_stock;
+
+		/// <summary>
+		/// tr_purchaseAmount control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_purchaseAmount;
+
+		/// <summary>
+		/// quantity control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox quantity;
+
+		/// <summary>
+		/// vld_stock control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RangeValidator vld_stock;
+
+		/// <summary>
+		/// btn_proceed control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btn_proceed;
 	}
 }
