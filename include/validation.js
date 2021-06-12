@@ -31,3 +31,18 @@ function error_username_taken() {
 
     return false;
 }
+function checkrange() {
+
+    var x = parseInt(document.getelementID("txt_rating").value);
+
+    if (x < 0 && x > 5) {
+
+        alert('Please enter a rating Below 5 an above 0');
+
+        document.getelementID("txt_rating").SetFocus();
+
+        return false;
+
+    }
+
+}

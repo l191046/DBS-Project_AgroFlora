@@ -11,7 +11,7 @@ namespace Agroflora
 {
 
 
-    public partial class customer_profile
+    public partial class rate_product
     {
 
         /// <summary>
@@ -33,102 +33,57 @@ namespace Agroflora
         protected global::System.Web.UI.HtmlControls.HtmlTableCell td_uname;
 
         /// <summary>
-        /// td_fname control.
+        /// td_pname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_fname;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_pname;
 
         /// <summary>
-        /// td_lname control.
+        /// txt_rating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_lname;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell txt_rating;
 
         /// <summary>
-        /// td_email control.
+        /// td_rating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_email;
+        protected global::System.Web.UI.WebControls.TextBox td_rating;
 
         /// <summary>
-        /// td_address control.
+        /// vld_rating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_address;
+        protected global::System.Web.UI.WebControls.RangeValidator vld_rating;
 
         /// <summary>
-        /// td_dob control.
+        /// td_review control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_dob;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea td_review;
 
         /// <summary>
-        /// td_contact control.
+        /// btn_remove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_contact;
-
-        /// <summary>
-        /// td_creditcard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_creditcard;
-
-        /// <summary>
-        /// td_points control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td_points;
-
-        /// <summary>
-        /// hyper_editprofile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyper_editprofile;
-
-        /// <summary>
-        /// grid_history control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grid_history;
-
-        /// <summary>
-        /// RateProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RateProduct;
+        protected global::System.Web.UI.WebControls.Button btn_remove;
     }
 }

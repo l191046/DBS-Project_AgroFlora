@@ -72,4 +72,9 @@
     </div>
 
     <br>
+    <hr>
+    <div class="container text-center">
+        <asp:HyperLink ID="RateProduct" runat="server" href="unrated_products.aspx" CssClass="btn btn-primary" role="button">Rate Product</asp:HyperLink>
+    </div>
+    
 </asp:Content>

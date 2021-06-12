@@ -16,7 +16,7 @@ namespace Agroflora
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			load_product();
-			load_ratings();
+			
 		}
 
 
@@ -54,29 +54,6 @@ namespace Agroflora
 
 		}
 
-		public void load_ratings()
-		{
-			int productID;
-			if (Request.QueryString["PID"] == null)
-			{
-				productID = 1;
-			}
-			else
-			{
-				productID = Int32.Parse(Request.QueryString["PID"]);
-			}
-
-			agroflora_DAL objDAL = new agroflora_DAL();
-			DataTable dt = new DataTable();
-			if (objDAL.get_rating(productID, ref dt) == -1)
-			{
-				Response.Redirect("error.aspx");
-			}
-			else
-			{
-				grid_ratings.DataSource = dt;
-				grid_ratings.DataBind();
-			}
-		}
+		
 	}
 }

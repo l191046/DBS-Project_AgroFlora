@@ -11,17 +11,7 @@
             <div class="col-md-5 order-md-1">
                 <asp:Image ID="img_product" runat="server" onerror="this.src='images/logo_large.png'" AlternateText="logo.png" CssClass="img-fluid card-img-top"/>
                 
-                     <div class="container pt-5">
-                        <h1 class="text-center">RATINGS</h1>
-
-                        <asp:GridView id ="grid_ratings" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:BoundField DataField="Name" HeaderText="Username"/>
-                                <asp:BoundField DataField="Rating" HeaderText="Rating"/>
-                                <asp:BoundField DataField="Review" HeaderText="Reviews"/>
-                            </Columns>
-                        </asp:GridView>
-                    </div>
+                    
             </div>
   
             <div class="col-md-7 order-md-2">
