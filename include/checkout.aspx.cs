@@ -9,6 +9,7 @@ namespace Agroflora
 {
 	public partial class checkout : System.Web.UI.Page
 	{
+		protected int customerID;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			load_profile();
@@ -20,45 +21,39 @@ namespace Agroflora
 			agroflora_DAL objDAL = new agroflora_DAL();
 			string username = Session["customer"] as string;
 
-			DataTable dt = new DataTable();
-			int result = objDAL.get_customer(username, ref dt);
-			if (result == -1)
+			int pType = Int32.Parse(drop_payment.SelectedValue);
+
+			ArrayList cartItems = new ArrayList();
+			ArrayList cartQuantity = new ArrayList();
+			cartItems = (ArrayList)Session["item"];
+			cartQuantity = (ArrayList)Session["quantity"];
+
+			if(cartItems == null)
 			{
-				Response.Redirect("error.aspx");
+				return;
 			}
-			else
+			for (int i = 0; i < cartItems.Count; i++)
 			{
-				int cID = Int32.Parse(dt.Rows[0]["CustomerID"].ToString());
-				int pType = Int32.Parse(drop_payment.SelectedValue);
+				int tCount = objDAL.get_table_count("Purchase") + 1;
+				int purchaseID = tCount;
+				int Item = (int)cartItems[i];
+				int Quantity = (int)cartQuantity[i];
 
-				ArrayList cartItems = new ArrayList();
-				ArrayList cartQuantity = new ArrayList();
-				cartItems = (ArrayList)Session["item"];
-				cartQuantity = (ArrayList)Session["quantity"];
-
-				for (int i = 0; i < cartItems.Count; i++)
+				int currentStock = objDAL.get_stock(Item);
+				int newStock = currentStock - Quantity;
+				if (newStock >= 0)
 				{
-					int tCount = objDAL.get_table_count("Purchase") + 1;
-					int purchaseID = tCount;
-					int Item = (int)cartItems[i];
-					int Quantity = (int)cartQuantity[i];
-
-					int currentStock = objDAL.get_stock(Item);
-					int newStock = currentStock - Quantity;
-					if (newStock >= 0)
-					{
-						objDAL.update_stock(Item, newStock);
-						objDAL.add_purchase(purchaseID, cID, Item, Quantity, pType);
-					}
+					objDAL.update_stock(Item, newStock);
+					objDAL.add_purchase(purchaseID, customerID, Item, Quantity, pType);
 				}
+			}
 
-				cartQuantity.Clear();
-				cartItems.Clear();
-				Session["item"] = cartItems;
-				Session["quantity"] = cartQuantity;
+			cartQuantity.Clear();
+			cartItems.Clear();
+			Session["item"] = cartItems;
+			Session["quantity"] = cartQuantity;
 
-				Response.Redirect("home_user.aspx");
-			}	
+			Response.Redirect("home_user.aspx");
 		}
 
 		protected void grid_cart_rowCommand(object sender, GridViewCommandEventArgs e)
@@ -107,8 +102,15 @@ namespace Agroflora
 			cartItems = (ArrayList)Session["item"];
 			cartQuantity = (ArrayList)Session["quantity"];
 
-			DataRow workRow;
+			if(cartItems == null)
+			{
+				cartItems = new ArrayList();
+				Session["item"] = cartItems;
+				cartQuantity = new ArrayList();
+				Session["quantity"] = cartQuantity;
+			}
 
+			DataRow workRow;
 			DataTable dt = new DataTable();
 			DataTable temp = new DataTable();
 			dt.Columns.Add("ProductID");
@@ -118,9 +120,6 @@ namespace Agroflora
 			int total = 0;
 			for (int i = 0; i < cartItems.Count; i++)
 			{
-
-
-
 				workRow = dt.NewRow();
 				int Item = (int)cartItems[i];
 				int Quantity = (int)cartQuantity[i];
@@ -141,20 +140,26 @@ namespace Agroflora
 				workRow["ProductID"] = Item;
 				workRow["Quantity"] = Quantity;
 				dt.Rows.Add(workRow);
-
 			}
-
 			grid_products.DataSource = dt;
 			grid_products.DataBind();
 
 			t_bill.Text = "Total Bill = " + total.ToString();
 
-
+			if(cartItems.Count == 0)
+			{
+				btn_submit.Visible = false;
+			}
 		}
 
 		void load_profile()
 		{
 			string username = Session["customer"] as string;
+			if (username == null)
+			{
+				username = "default";
+				Session["customer"] = username;
+			}
 			if (username != null)
 			{
 				agroflora_DAL objDAL = new agroflora_DAL();
@@ -167,6 +172,7 @@ namespace Agroflora
 				}
 				else
 				{
+					customerID = Convert.ToInt32(dt.Rows[0]["CustomerID"].ToString());
 					td_fname.InnerText = dt.Rows[0]["Fname"].ToString();
 					td_lname.InnerText = dt.Rows[0]["Lname"].ToString();
 					td_email.InnerText = dt.Rows[0]["email"].ToString();

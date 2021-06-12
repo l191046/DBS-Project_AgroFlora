@@ -16,6 +16,11 @@ namespace Agroflora
 		{
 			agroflora_DAL objDAL = new agroflora_DAL();
 			string retailer = Session["retailer"] as string;
+			if(retailer == null)
+			{
+				retailer = "default";
+				Session["retailer"] = retailer;
+			}
 			int retailerID = objDAL.get_retailerID(retailer);
 			if(retailerID == -1)
 			{

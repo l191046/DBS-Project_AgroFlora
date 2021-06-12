@@ -55,8 +55,11 @@
                 <div class="container pb-5">
                     <asp:RequiredFieldValidator ID="vld_price" runat="server" ErrorMessage="Price is required" ControlToValidate="txt_price" CssClass="error pb-2"></asp:RequiredFieldValidator>
                 </div>
-                <div class="container">
+                <div class="container pb-5">
                     <asp:RequiredFieldValidator ID="vld_category" runat="server" ErrorMessage="Category is required" ControlToValidate="drop_category" CssClass="error pb-2" InitialValue="0"></asp:RequiredFieldValidator>
+                </div>
+                <div class="container">
+                    <asp:RequiredFieldValidator ID="vld_image" runat="server" ErrorMessage="Image is required" ControlToValidate="file_image" CssClass="error pb-2"></asp:RequiredFieldValidator>
                 </div>
             </div>
         </div>
