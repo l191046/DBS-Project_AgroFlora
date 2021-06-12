@@ -755,6 +755,92 @@ namespace Agroflora.DAL
 
 			return result;
 		}
+		//unrated products
+		public int unrated_products(string username, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("unrated_products", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+
+		public int rate_product(string Username, int ProductID, int rating, string review)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			DataTable dt = new DataTable();
+			DataTable dt2 = new DataTable();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("rate_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				int found = get_customer(Username, ref dt);
+
+
+				string ID = dt.Rows[0]["CustomerID"].ToString();
+				int CustomerID = Convert.ToInt32(ID);
+
+				command.Parameters.Add("@customerID", SqlDbType.Int);
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				command.Parameters.Add("@score", SqlDbType.Int);
+				command.Parameters.Add("@review", SqlDbType.VarChar, 200);
+
+				//set parameters
+				command.Parameters["@customerID"].Value = CustomerID;
+				command.Parameters["@productID"].Value = ProductID;
+				command.Parameters["@score"].Value = rating;
+				command.Parameters["@review"].Value = review;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException sq)
+			{
+				Console.WriteLine("SQL ERROR: " + sq.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+
+			return result;
+
+		}
+
 
 		//CATALOGUE
 		public int get_products_category(string category, ref DataTable DT)
@@ -1109,43 +1195,8 @@ namespace Agroflora.DAL
 			return result;
 		}
 
-		//Ratings
-		public int get_rating(int productID, ref DataTable DT)
-		{
-			int result = -1;
-			DataSet resultSet = new DataSet();
-			SqlConnection con = new SqlConnection(connectionString);
-			con.Open();
-			SqlCommand command;
-			try
-			{
-				command = new SqlCommand("get_ratings", con);
-				command.CommandType = CommandType.StoredProcedure;
-				//establish parameters
-				command.Parameters.Add("@productID", SqlDbType.Int);
-				//set parameters
-				command.Parameters["@productID"].Value = productID;
-
-				command.ExecuteNonQuery();
-				using (SqlDataAdapter da = new SqlDataAdapter(command))
-				{
-					da.Fill(resultSet);
-				}
-				DT = resultSet.Tables[0];
-				result = 1;
-			}
-			catch (SqlException ex)
-			{
-				Console.WriteLine("SQL ERROR : " + ex.Message.ToString());
-				result = -1;
-			}
-			finally
-			{
-				con.Close();
-			}
-
-			return result;
-		}
+		
+		
 
 	}
 }
