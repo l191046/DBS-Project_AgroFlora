@@ -612,3 +612,29 @@ AS
 			INNER JOIN Customer ON Customer.CustomerID=Rating.customerID
 	WHERE	Product.ProductID=@productID
 GO
+
+CREATE PROCEDURE unrated_products
+@username varchar(20)
+
+AS
+	Select  [Product].[name] as [ProductName], [Product].ProductID
+	from purchase
+	Inner Join [Customer] on [Purchase].CustomerID = Customer.CustomerID Inner Join Product on Product.ProductID = Purchase.ProductID
+    where (Customer.UserName=@username)
+EXCEPT 
+Select  [Product].[name] as Name, [Product].ProductID
+	from Rating
+	Inner Join [Customer] on Rating.CustomerID = Customer.CustomerID Inner Join Product on Product.ProductID = Rating.ProductID
+    where (Customer.UserName=@username)
+GO
+
+CREATE PROCEDURE rate_product
+@customerID	int,
+@productID int,
+@score int,
+@review varchar(200)
+AS
+
+INSERT INTO Rating
+values (@productID,@customerID, @score, @review);
+GO
