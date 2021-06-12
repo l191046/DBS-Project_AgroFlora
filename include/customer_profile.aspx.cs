@@ -15,6 +15,11 @@ namespace Agroflora
 		public void load_profile()
 		{
 			string username = Session["customer"] as string;
+			if(username == null)
+			{
+				username = "default";
+				Session["customer"] = username;
+			}
 			if (username != null)
 			{
 				agroflora_DAL objDAL = new agroflora_DAL();
@@ -31,7 +36,10 @@ namespace Agroflora
 					td_lname.InnerText = dt.Rows[0]["Lname"].ToString();
 					td_email.InnerText = dt.Rows[0]["email"].ToString();
 					td_address.InnerText = dt.Rows[0]["address"].ToString();
-					td_dob.InnerText = dt.Rows[0]["dob"].ToString();
+					string dob = dt.Rows[0]["dob"].ToString();
+					DateTime date;
+					DateTime.TryParse(dob, out date);
+					td_dob.InnerText = date.ToString("yyyy-MM-dd");
 					td_contact.InnerText = dt.Rows[0]["contact"].ToString();
 					td_creditcard.InnerText = dt.Rows[0]["creditcard"].ToString();
 				}

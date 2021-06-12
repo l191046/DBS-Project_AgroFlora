@@ -160,11 +160,13 @@ CHECK (Stock >= 0);
 GO
 --DATA
 Insert Into [Admin] ([UserName],[Password],AdminID,Fname,Lname,Email,CNIC) values
+('default', 'default', 0, 'default', 'default', 'default@default.com', '0123456789123'),
 ('sukhanamir','cruchyrock478',1,'Sukhan','Amir','sukhanamir23@gmail,com','3520245930124'),
 ('abdulmuneem','poniacbandit39',2,'Rana','Abdul Muneem','abdulmuneem76@gmail.com','3520258491028'),
 ('raziahmed', 'inferno889', 3,'Razi','Ahmed','raziahmed98@gmail.com','3520285940314');
 
 Insert Into [Customer] ([UserName],[Password],CustomerID,Fname,Lname,Email,[Address],DOB,Points,Contact,CreditCard) values
+('default', 'default', 0, 'default', 'default', 'default@default.com', 'default', '2000-01-01', 0, '01234567891', null),
 ('abdulsami','rollarcoaster45',4,'Abdul Sami','Butt','abdulsami@outlook.com','378 G3 Johar Town,Lahore ','1978-03-21',0,'03594830126','5940302768943670'),
 ('hajrazubair','notsoweird23',6,'Hajra','Zubair','hzubair44@gmail.com','44 block A DHA,Karachi ','1999-03-12',0,'03657483296','5746398076571297'),
 ('ridaahmed','iamoutofpasswords33',8,'Rida','Ahmed','ridaahmed5@gmail.com','984 J1 Wapda Town,Lahore ','2002-12-5',0,'03970543619','9715489065468491'),
@@ -177,6 +179,7 @@ Insert Into [Customer] ([UserName],[Password],CustomerID,Fname,Lname,Email,[Addr
 ('sherry123', '19944n', 9,'Shaheer','Akhtar', 'sherry0123@gmail.com' , '142 F block Johar Town', '2000-05-30', 0, '03176015251', '0169422280001112');
 
 INSERT INTO Retailer VALUES
+('default', 'default', 0, 'default', 'default@default.com', 'default', '1111111', '01234567891', '1111111111111'), 
 ('Flowershop', '01234567', 1, 'Flowershop', 'flowershop@gmail.com', 'Wapda Town Lahore', '0123456', '03361111111', '12345678910111213'),
 ('ParadiseGarden', '12345678', 2, 'The Paradise Garden', 'paradisegarden@gmail.com', 'Bahria Town Karachi', '1234567', '03231212121', '12345678910111214'),
 ('GTerrace', '23456789', 3, 'Green Terrace', 'greenterrace@gmail.com', 'DHA Phase3 Lahore', '2345678', '03341112222', '12345678910111215'), 
@@ -519,6 +522,67 @@ FROM	Purchase
 
 WHERE	Retailer.UserName = @username
 ORDER BY Purchase.[Date] DESC
+GO
+
+--EDIT PAGES
+CREATE PROCEDURE edit_admin
+@uname	varchar(20),
+@fname	varchar(20),
+@lname	varchar(20),
+@email	varchar(30),
+@cnic	char(13)
+AS
+	UPDATE	[Admin]
+	SET		Fname = @fname,
+			Lname = @lname,
+			Email = @email,
+			CNIC = @cnic
+	WHERE	UserName = @uname
+GO
+
+CREATE PROCEDURE edit_customer
+@uname		varchar(20),
+@fname		varchar(20),
+@lname		varchar(20),
+@email		varchar(30),
+@address	varchar(50),
+@dob		date,
+@contact	char(11),
+@creditcard	char(16)
+AS
+	IF @contact = ''
+		SET @contact = NULL
+	IF @creditcard = ''
+		SET @creditcard = NULL
+
+	UPDATE	Customer
+	SET		Fname = @fname,
+			Lname = @lname,
+			Email = @email,
+			[Address] = @address,
+			DOB = @dob,
+			[Contact] = @contact,
+			CreditCard = @creditcard
+	WHERE	UserName = @uname
+GO
+
+CREATE PROCEDURE edit_retailer
+@uname		varchar(20),
+@name		varchar(30),
+@email		varchar(30),
+@address	varchar(50),
+@ntn		char(13),
+@contact	char(11),
+@bankaccount	char(20)
+AS
+	UPDATE	Retailer
+	SET		[Name] = @name,
+			Email = @email,
+			[Address] = @address,
+			NTN = @ntn,
+			[Contact] = @contact,
+			BankAccount = @bankaccount
+	WHERE	UserName = @uname
 GO
 
 --SPECIALIZED FUNCTIONS

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Web.Management;
-
 namespace Agroflora.DAL
 {
 	public class agroflora_DAL
@@ -566,7 +560,6 @@ namespace Agroflora.DAL
 
 			return result;
 		}
-		
 		public int get_retailerID(string username)
 		{
 			int result = -1;
@@ -746,6 +739,132 @@ namespace Agroflora.DAL
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL ERROR : " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+
+		//EDIT PAGES
+		public int edit_admin(string username, string fname, string lname, string email, string cnic)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("edit_admin", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@uname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@fname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@lname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@cnic", SqlDbType.Char, 13);
+				//set parameters
+				command.Parameters["@uname"].Value = username;
+				command.Parameters["@fname"].Value = fname;
+				command.Parameters["@lname"].Value = lname;
+				command.Parameters["@email"].Value = email;
+				command.Parameters["@cnic"].Value = cnic;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int edit_customer(string username, string fname, string lname, string email, string address, string dob, string contact, string creditcard)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("edit_customer", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@uname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@fname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@lname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
+				command.Parameters.Add("@dob", SqlDbType.Date);
+				command.Parameters.Add("@contact", SqlDbType.Char, 11);
+				command.Parameters.Add("@creditcard", SqlDbType.Char, 16);
+				//set parameters
+				command.Parameters["@uname"].Value = username;
+				command.Parameters["@fname"].Value = fname;
+				command.Parameters["@lname"].Value = lname;
+				command.Parameters["@email"].Value = email;
+				command.Parameters["@address"].Value = address;
+				command.Parameters["@dob"].Value = dob;
+				command.Parameters["@contact"].Value = contact;
+				command.Parameters["@creditcard"].Value = creditcard;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int edit_retailer(string username, string name, string email, string address, string ntn, string contact, string bankaccount)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("edit_retailer", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@uname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@name", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
+				command.Parameters.Add("@ntn", SqlDbType.Char, 13);
+				command.Parameters.Add("@contact", SqlDbType.Char, 11);
+				command.Parameters.Add("@bankaccount", SqlDbType.Char, 16);
+				//set parameters
+				command.Parameters["@uname"].Value = username;
+				command.Parameters["@fname"].Value = name;
+				command.Parameters["@email"].Value = email;
+				command.Parameters["@address"].Value = address;
+				command.Parameters["@ntn"].Value = ntn;
+				command.Parameters["@contact"].Value = contact;
+				command.Parameters["@bankaccount"].Value = bankaccount;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
 				result = -1;
 			}
 			finally

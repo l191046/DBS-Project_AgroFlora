@@ -62,7 +62,7 @@
                             <div class="col">
                                 <div class="d-inline-flex">
                                     <asp:TextBox ID="txt_search" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Button ID="btn_search" runat="server" Text="Search" CssClass="btn btn-success" OnClick="btn_search_Click" />
+                                    <asp:Button ID="btn_search" runat="server" Text="Search" CssClass="btn btn-success" OnClick="btn_search_Click" CausesValidation="false" UseSubmitBehavior="false"/>
                                 </div>
                             </div>
                         </div>

@@ -15,6 +15,11 @@ namespace Agroflora
 		public void load_profile()
 		{
 			string username = Session["retailer"] as string;
+			if (username == null)
+			{
+				username = "default";
+				Session["retailer"] = username;
+			}
 			if (username != null)
 			{
 				agroflora_DAL objDAL = new agroflora_DAL();
