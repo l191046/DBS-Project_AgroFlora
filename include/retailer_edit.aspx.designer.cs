@@ -33,60 +33,6 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox txt_name;
 
 		/// <summary>
-		/// txt_email control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txt_email;
-
-		/// <summary>
-		/// txt_address control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txt_address;
-
-		/// <summary>
-		/// txt_ntn control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txt_ntn;
-
-		/// <summary>
-		/// txt_contact control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txt_contact;
-
-		/// <summary>
-		/// txt_bankaccount control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox txt_bankaccount;
-
-		/// <summary>
-		/// btn_save control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button btn_save;
-
-		/// <summary>
 		/// vld_name control.
 		/// </summary>
 		/// <remarks>
@@ -94,6 +40,15 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_name;
+
+		/// <summary>
+		/// txt_email control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txt_email;
 
 		/// <summary>
 		/// vld_email control.
@@ -114,6 +69,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_email;
 
 		/// <summary>
+		/// txt_address control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txt_address;
+
+		/// <summary>
 		/// vld_address control.
 		/// </summary>
 		/// <remarks>
@@ -121,6 +85,15 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_address;
+
+		/// <summary>
+		/// txt_ntn control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txt_ntn;
 
 		/// <summary>
 		/// vld_ntn control.
@@ -141,13 +114,13 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_ntn;
 
 		/// <summary>
-		/// vld_contact control.
+		/// txt_contact control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_contact;
+		protected global::System.Web.UI.WebControls.TextBox txt_contact;
 
 		/// <summary>
 		/// vld_exp_contact control.
@@ -159,6 +132,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_contact;
 
 		/// <summary>
+		/// txt_bankaccount control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txt_bankaccount;
+
+		/// <summary>
 		/// vld_bankaccount control.
 		/// </summary>
 		/// <remarks>
@@ -166,5 +148,14 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_bankaccount;
+
+		/// <summary>
+		/// btn_save control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btn_save;
 	}
 }

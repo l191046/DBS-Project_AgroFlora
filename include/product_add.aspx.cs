@@ -9,18 +9,20 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			string retailer = Session["retailer"] as string;
+			if (retailer == null)
+			{
+				//REPLACE WITH ERROR PAGE
+				//Response.Redirect("error.aspx");
+				retailer = "default";
+				Session["retailer"] = retailer;
+			}
 		}
 
 		protected void btn_submit_Click(object sender, EventArgs e)
 		{
 			agroflora_DAL objDAL = new agroflora_DAL();
 			string retailer = Session["retailer"] as string;
-			if(retailer == null)
-			{
-				retailer = "default";
-				Session["retailer"] = retailer;
-			}
 			int retailerID = objDAL.get_retailerID(retailer);
 			if(retailerID == -1)
 			{
@@ -39,8 +41,6 @@ namespace Agroflora
 			string file_path;
 			string folder_name;
 			folder_name = Server.MapPath("./images/products/");
-			//file_name = file_image.PostedFile.FileName;
-			//file_name = Path.GetFileName(file_name);
 
 			file_name = name + DateTime.Now.Ticks.ToString() + ".png";
 			file_path = folder_name + file_name;

@@ -96,6 +96,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.HyperLink hyper_editprofile;
 
 		/// <summary>
+		/// h1_products control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_products;
+
+		/// <summary>
 		/// hyper_addproduct control.
 		/// </summary>
 		/// <remarks>
@@ -112,6 +121,24 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.GridView grid_products;
+
+		/// <summary>
+		/// hr_sales control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_sales;
+
+		/// <summary>
+		/// h1_sales control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_sales;
 
 		/// <summary>
 		/// grid_sales control.

@@ -8,6 +8,14 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			string username = Session["admin"] as string;
+			if (username == null)
+			{
+				//REPLACE WITH ERROR PAGE
+				//Response.Redirect("error.aspx");
+				username = "default";
+				Session["admin"] = username;
+			}
 			if (!IsPostBack)
 			{
 				load_admin();
@@ -17,15 +25,10 @@ namespace Agroflora
 		protected void load_admin()
 		{
 			string username = Session["admin"] as string;
-			if (username == null)
-			{
-				username = "default";
-				Session["admin"] = username;
-			}
 			DataTable dt = new DataTable();
 			agroflora_DAL objDAL = new agroflora_DAL();
 
-			if(objDAL.get_admin(username, ref dt) == -1)
+			if (objDAL.get_admin(username, ref dt) == -1)
 			{
 				Response.Redirect("error.aspx");
 			}
@@ -47,7 +50,7 @@ namespace Agroflora
 			string lname = txt_lname.Text;
 			string email = txt_email.Text;
 			string cnic = txt_cnic.Text;
-			if( objDAL.edit_admin(uname, fname, lname, email, cnic) == -1)
+			if (objDAL.edit_admin(uname, fname, lname, email, cnic) == -1)
 			{
 				Response.Redirect("error.aspx");
 			}

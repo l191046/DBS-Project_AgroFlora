@@ -8,33 +8,33 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			string username = Session["admin"] as string;
+			if (username == null)
+			{
+				//REPLACE WITH ERROR PAGE
+				//Response.Redirect("error.aspx");
+				username = "default";
+				Session["admin"] = username;
+			}
 			load_profile();
 		}
 
 		public void load_profile()
 		{
 			string username = Session["admin"] as string;
-			if (username == null)
+			agroflora_DAL objDAL = new agroflora_DAL();
+			DataTable dt = new DataTable();
+			if(objDAL.get_admin(username, ref dt) == -1)
 			{
-				username = "default";
-				Session["admin"] = username;
+				Response.Redirect("error.aspx");
 			}
-			if (username != null)
+			else
 			{
-				agroflora_DAL objDAL = new agroflora_DAL();
-				DataTable dt = new DataTable();
-				if(objDAL.get_admin(username, ref dt) == -1)
-				{
-					Response.Redirect("error.aspx");
-				}
-				else
-				{
-					td_uname.InnerText = dt.Rows[0]["UserName"].ToString();
-					td_fname.InnerText = dt.Rows[0]["Fname"].ToString();
-					td_lname.InnerText = dt.Rows[0]["Lname"].ToString();
-					td_email.InnerText = dt.Rows[0]["Email"].ToString();
-					td_cnic.InnerText = dt.Rows[0]["CNIC"].ToString();
-				}
+				td_uname.InnerText = dt.Rows[0]["UserName"].ToString();
+				td_fname.InnerText = dt.Rows[0]["Fname"].ToString();
+				td_lname.InnerText = dt.Rows[0]["Lname"].ToString();
+				td_email.InnerText = dt.Rows[0]["Email"].ToString();
+				td_cnic.InnerText = dt.Rows[0]["CNIC"].ToString();
 			}
 		}
 	}

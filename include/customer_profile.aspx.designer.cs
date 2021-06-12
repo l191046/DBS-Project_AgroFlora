@@ -114,6 +114,24 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.HyperLink hyper_editprofile;
 
 		/// <summary>
+		/// hr_purchases control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_purchases;
+
+		/// <summary>
+		/// h1_purchases control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_purchases;
+
+		/// <summary>
 		/// grid_history control.
 		/// </summary>
 		/// <remarks>

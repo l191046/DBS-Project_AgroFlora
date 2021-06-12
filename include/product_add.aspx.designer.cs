@@ -24,6 +24,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox txt_productname;
 
 		/// <summary>
+		/// vld_productname control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_productname;
+
+		/// <summary>
 		/// txt_stock control.
 		/// </summary>
 		/// <remarks>
@@ -31,6 +40,15 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txt_stock;
+
+		/// <summary>
+		/// vld_stock control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_stock;
 
 		/// <summary>
 		/// txt_price control.
@@ -42,6 +60,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox txt_price;
 
 		/// <summary>
+		/// vld_price control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_price;
+
+		/// <summary>
 		/// drop_category control.
 		/// </summary>
 		/// <remarks>
@@ -51,6 +78,15 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.DropDownList drop_category;
 
 		/// <summary>
+		/// vld_category control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_category;
+
+		/// <summary>
 		/// file_image control.
 		/// </summary>
 		/// <remarks>
@@ -58,6 +94,15 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlInputFile file_image;
+
+		/// <summary>
+		/// vld_image control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_image;
 
 		/// <summary>
 		/// txt_description control.
@@ -76,50 +121,5 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button btn_submit;
-
-		/// <summary>
-		/// vld_productname control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_productname;
-
-		/// <summary>
-		/// vld_stock control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_stock;
-
-		/// <summary>
-		/// vld_price control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_price;
-
-		/// <summary>
-		/// vld_category control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_category;
-
-		/// <summary>
-		/// vld_image control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_image;
 	}
 }

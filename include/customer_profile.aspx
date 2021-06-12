@@ -55,11 +55,11 @@
         <asp:HyperLink ID="hyper_editprofile" runat="server" href="customer_edit.aspx" CssClass="btn btn-primary" role="button">Edit Profile</asp:HyperLink>
     </div>
 
-    <hr>
+    <hr id="hr_purchases" runat="server"/>
 
     <!--CUSTOMER PURCHASES-->
     <div class="container pt-5">
-        <h1 class="text-center">PURCHASE HISTORY</h1>
+        <h1 class="text-center" id="h1_purchases" runat="server">PURCHASE HISTORY</h1>
             <asp:GridView id ="grid_history" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="Name" HeaderText="Name"/>

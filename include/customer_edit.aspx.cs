@@ -8,6 +8,14 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			string username = Session["customer"] as string;
+			if (username == null)
+			{
+				//REPLACE WITH ERROR PAGE
+				//Response.Redirect("error.aspx");
+				username = "default";
+				Session["customer"] = username;
+			}
 			if (!IsPostBack)
 			{
 				load_customer();
@@ -17,11 +25,6 @@ namespace Agroflora
 		protected void load_customer()
 		{
 			string username = Session["customer"] as string;
-			if (username == null)
-			{
-				username = "default";
-				Session["customer"] = username;
-			}
 			DataTable dt = new DataTable();
 			agroflora_DAL objDAL = new agroflora_DAL();
 
