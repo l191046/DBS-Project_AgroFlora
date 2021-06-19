@@ -5,64 +5,86 @@
         <img class="img-fluid"  src="images\logo_small.png" alt="logo.png">
         <h1>Retailer Edit</h1>
     </div>
-            
-    <div class="col-md-4 offset-md-4 text-center pb-5" style="margin-top: auto;  margin-bottom: auto;">
-                
-        <div class="form-floating">
-            <asp:TextBox Id="firstname" runat="server" class="form-control"  placeholder="First Name"></asp:TextBox>
-            <label for="fname">Edit First Name</label>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-2 offset-3 text-end">
+                <label class="h5">Username</label>
+            </div>
+            <div class="col-4">
+                <asp:TextBox ID="txt_uname" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+            </div>
         </div>
 
-        <div class="form-floating">
-            <asp:TextBox Id="lastname" runat="server" type="text" class="form-control"  placeholder="Last Name"></asp:TextBox>
-            <label for="lname">Edit Last Name</label>
+        <div class="row">
+            <div class="col-2 offset-3 text-end">
+                <label class="h5">Name</label>
+            </div>
+            <div class="col-4">
+                <asp:TextBox ID="txt_name" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-3">
+                <asp:RequiredFieldValidator ID="vld_name" runat="server" ErrorMessage="Name is required" ControlToValidate="txt_name" CssClass="error"></asp:RequiredFieldValidator>
+            </div>
         </div>
 
-        <div class="form-floating">
-            <asp:TextBox Id="username" runat="server" class="form-control"  placeholder="Username"></asp:TextBox>
-            <label for="username"> Edit User Name</label>
+        <div class="row">
+            <div class="col-2 offset-3 text-end">
+                <label class="h5">Email</label>
+            </div>
+            <div class="col-4">
+                <asp:TextBox ID="txt_email" runat="server" TextMode="Email" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-3">
+                <asp:RequiredFieldValidator ID="vld_email" runat="server" ErrorMessage="Email is required" ControlToValidate="txt_email" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="vld_exp_email" runat="server" ErrorMessage="Email must be valid" ControlToValidate="txt_email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" CssClass="error" Display="Dynamic"></asp:RegularExpressionValidator>
+            </div>
         </div>
 
-
-        <div class="form-floating">
-            <asp:TextBox Id="email"  runat="server" class="form-control" placeholder="name@example.com"></asp:TextBox>
-            <label for="email">Edit Email address</label>
+        <div class="row">
+            <div class="col-2 offset-3 text-end">
+                <label class="h5">Address</label>
+            </div>
+            <div class="col-4">
+                <asp:TextBox ID="txt_address" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-3">
+                <asp:RequiredFieldValidator ID="vld_address" runat="server" ErrorMessage="Address is required" ControlToValidate="txt_address" CssClass="error"></asp:RequiredFieldValidator>
+            </div>
         </div>
 
-        <div class="form-floating">
-            <asp:TextBox Id="oldpassword" runat="server" type="password" class="form-control"  placeholder="Old Password"></asp:TextBox>
-            <label for="oldpassword">Old Password</label>
+        <div class="row">
+            <div class="col-2 offset-3 text-end">
+                <label class="h5">NTN</label>
+            </div>
+            <div class="col-4">
+                <asp:TextBox ID="txt_ntn" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-3">
+                <asp:RequiredFieldValidator ID="vld_ntn" runat="server" ErrorMessage="NTN is required" ControlToValidate="txt_ntn" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="vld_exp_ntn" runat="server" ErrorMessage="NTN must be 13 digits" CssClass="error" ControlToValidate="txt_ntn" ValidationExpression="\d{13}$" Display="Dynamic"></asp:RegularExpressionValidator>                
+            </div>
         </div>
 
-        <div class="form-floating">
-            <asp:TextBox Id="newpassword" runat="server" type="password" class="form-control"  placeholder="New Password"></asp:TextBox>
-            <label for="newpassword">New Password</label>
+        <div class="row">
+            <div class="col-2 offset-3 text-end">
+                <label class="h5">Contact</label>
+            </div>
+            <div class="col-4">
+                <asp:TextBox ID="txt_contact" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-3">
+                <asp:RequiredFieldValidator ID="vld_contact" runat="server" ErrorMessage="Contact is required" ControlToValidate="txt_contact" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="vld_exp_contact" runat="server" ErrorMessage="Contact must be 11 digits" CssClass="error" ControlToValidate="txt_contact" ValidationExpression="\d{11}$"></asp:RegularExpressionValidator>
+            </div>
         </div>
 
-        <div class="form-floating">
-            <asp:TextBox Id="address" runat="server" class="form-control"  placeholder="Address"></asp:TextBox>
-            <label for="address">Edit Address</label>
+        <div class="row">
+            <div class="col-6 offset-3 pt-3">
+                <asp:Button ID="btn_save" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Save Changes" OnClick="btn_save_Click"/>
+            </div>
         </div>
 
-            <div class="form-floating">
-            <asp:TextBox Id="NTN" runat="server" class="form-control"  placeholder="NTN"></asp:TextBox>
-            <label for="address">Edit NTN</label>
-        </div>
-
-            <div class="form-floating">
-            <asp:TextBox Id="BankAccount" runat="server" class="form-control"  placeholder="Back Account"></asp:TextBox>
-            <label for="address">Edit Bank Account</label>
-        </div>
-
-        <div class="form-floating">
-            <asp:TextBox Id="contact" runat="server" class="form-control"  placeholder="Contact"></asp:TextBox>
-            <label for="address">Edit Contact</label>
-        </div>
-
-
-        <asp:Button ID="submit" class="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Save Changes"/>
-                
     </div>
-
 </asp:Content>
 

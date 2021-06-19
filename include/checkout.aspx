@@ -44,8 +44,9 @@
                     <asp:ListItem Value="4">Cheque On Delivery</asp:ListItem>
                     <asp:ListItem Value="5">Mobile Payment</asp:ListItem>
                 </asp:DropDownList>
-
-                <asp:RequiredFieldValidator ID="vld_payment" runat="server" ControlToValidate="drop_payment" ErrorMessage="Please select a payment method" InitialValue="0" CssClass="error"></asp:RequiredFieldValidator>
+                <div class="text-center">
+                    <asp:RequiredFieldValidator ID="vld_payment" runat="server" ControlToValidate="drop_payment" ErrorMessage="Please select a payment method" InitialValue="0" CssClass="error"></asp:RequiredFieldValidator>
+                </div>
                 
                 <hr/>
                 <asp:Button ID="btn_submit" OnClick ="insertInDB" runat="server" Text="Confirm Payment" CssClass="btn-primary btn-lg w-100"/>

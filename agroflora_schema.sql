@@ -21,7 +21,7 @@ CREATE TABLE [Admin] (
 	Fname		varchar(20) NOT NULL,
 	Lname		varchar(20) NOT NULL,
 	Email		varchar(30),
-	CNIC		char(13) NOT NULL UNIQUE,
+	CNIC		char(13) NOT NULL ,
 );
 
 CREATE TABLE Customer (
@@ -34,9 +34,7 @@ CREATE TABLE Customer (
 	Email		varchar(30),
 	[Address]	varchar(50),
 	DOB			date,
-	Points		int,
 	Contact		char(11),
-	CreditCard	char(16)
 );
 
 CREATE TABLE Retailer (
@@ -47,9 +45,9 @@ CREATE TABLE Retailer (
 	[Name]			varchar(50) NOT NULL,
 	Email			varchar(30),
 	[Address]		varchar(50),
-	NTN				char(13) UNIQUE,
-	Contact			char(11),
-	BankAccount		varchar(20)
+	NTN				char(13),
+	Contact			char(11)
+	
 );
 
 CREATE TABLE Product (
@@ -158,30 +156,37 @@ CHECK (Price >= 0);
 ALTER TABLE Product ADD CONSTRAINT CHK_Stock
 CHECK (Stock >= 0);
 GO
+
 --DATA
 Insert Into [Admin] ([UserName],[Password],AdminID,Fname,Lname,Email,CNIC) values
+('default', 'default', 0, 'default', 'default', 'default@default.com', '0123456789123'),
 ('sukhanamir','cruchyrock478',1,'Sukhan','Amir','sukhanamir23@gmail,com','3520245930124'),
 ('abdulmuneem','poniacbandit39',2,'Rana','Abdul Muneem','abdulmuneem76@gmail.com','3520258491028'),
 ('raziahmed', 'inferno889', 3,'Razi','Ahmed','raziahmed98@gmail.com','3520285940314');
+GO
 
-Insert Into [Customer] ([UserName],[Password],CustomerID,Fname,Lname,Email,[Address],DOB,Points,Contact,CreditCard) values
-('abdulsami','rollarcoaster45',4,'Abdul Sami','Butt','abdulsami@outlook.com','378 G3 Johar Town,Lahore ','1978-03-21',0,'03594830126','5940302768943670'),
-('hajrazubair','notsoweird23',6,'Hajra','Zubair','hzubair44@gmail.com','44 block A DHA,Karachi ','1999-03-12',0,'03657483296','5746398076571297'),
-('ridaahmed','iamoutofpasswords33',8,'Rida','Ahmed','ridaahmed5@gmail.com','984 J1 Wapda Town,Lahore ','2002-12-5',0,'03970543619','9715489065468491'),
-('mohsinkhan','tranquialitybase',10,'Mohsin','Khan','mohsinkhan@yahoo.com','44 street 55 Peshawar Cantt,Peshawar ','2001-06-6',0,'0346372895','8493016574839265'),
-('RaziAhmad722', 'lalalalala', 1,'Razi','Ahmad', 'razi722@gmail.com' , '122 Cornelia Street', '1998-01-21', 0, '03325215251', '0123456789101112'),
-('MunimMuneem', 'Monum', 2,'Rana','AbdulMuneem', 'monum1252@gmail.com' , 'chakk no. 543', '2001-01-21', 0, '03325885251', '0123411189101112'),
-('Sukhan123', 'Perplexedhooman', 3,'Sukhan','Khan', 'Sukhan123@gmail.com' , 'F2 block lacas', '2000-01-21', 0, '03366215251', '0123422289101112'),
-('AAR123', '12344n', 5,'Ahsan','Abdurrehman', 'aar123@gmail.com' , '123 G block Bahria', '2000-01-31', 0, '03376215251', '0129422289101112'),
-('zainRafique21', '19344n', 7,'Zain','Rafique', 'zain123@gmail.com' , '142 F block Valencia Town', '2000-02-23', 0, '03176215251', '0169422289101112'),
-('sherry123', '19944n', 9,'Shaheer','Akhtar', 'sherry0123@gmail.com' , '142 F block Johar Town', '2000-05-30', 0, '03176015251', '0169422280001112');
+Insert Into [Customer] ([UserName],[Password],CustomerID,Fname,Lname,Email,[Address],DOB,Contact) values
+('default', 'default', 0, 'default', 'default', 'default@default.com', 'default', '2000-01-01', '01234567891'),
+('abdulsami','rollarcoaster45',4,'Abdul Sami','Butt','abdulsami@outlook.com','378 G3 Johar Town,Lahore ','1978-03-21','03594830126'),
+('hajrazubair','notsoweird23',6,'Hajra','Zubair','hzubair44@gmail.com','44 block A DHA,Karachi ','1999-03-12','03657483296'),
+('ridaahmed','iamoutofpasswords33',8,'Rida','Ahmed','ridaahmed5@gmail.com','984 J1 Wapda Town,Lahore ','2002-12-5','03970543619'),
+('mohsinkhan','tranquialitybase',10,'Mohsin','Khan','mohsinkhan@yahoo.com','44 street 55 Peshawar Cantt,Peshawar ','2001-06-6','0346372895'),
+('RaziAhmad722', 'lalalalala', 1,'Razi','Ahmad', 'razi722@gmail.com' , '122 Cornelia Street', '1998-01-21', '03325215251'),
+('MunimMuneem', 'Monum', 2,'Rana','AbdulMuneem', 'monum1252@gmail.com' , 'chakk no. 543', '2001-01-21',  '03325885251'),
+('Sukhan123', 'Perplexedhooman', 3,'Sukhan','Khan', 'Sukhan123@gmail.com' , 'F2 block lacas', '2000-01-21', '03366215251'),
+('AAR123', '12344n', 5,'Ahsan','Abdurrehman', 'aar123@gmail.com' , '123 G block Bahria', '2000-01-31', '03376215251'),
+('zainRafique21', '19344n', 7,'Zain','Rafique', 'zain123@gmail.com' , '142 F block Valencia Town', '2000-02-23',  '03176215251'),
+('sherry123', '19944n', 9,'Shaheer','Akhtar', 'sherry0123@gmail.com' , '142 F block Johar Town', '2000-05-30',  '03176015251');
+GO
 
 INSERT INTO Retailer VALUES
-('Flowershop', '01234567', 1, 'Flowershop', 'flowershop@gmail.com', 'Wapda Town Lahore', '0123456', '03361111111', '12345678910111213'),
-('ParadiseGarden', '12345678', 2, 'The Paradise Garden', 'paradisegarden@gmail.com', 'Bahria Town Karachi', '1234567', '03231212121', '12345678910111214'),
-('GTerrace', '23456789', 3, 'Green Terrace', 'greenterrace@gmail.com', 'DHA Phase3 Lahore', '2345678', '03341112222', '12345678910111215'), 
-('GardenDel', '34567890', 4, 'Garden Delights', 'gardendelights@gmail.com', 'Model Town Lahore', '3456789', '03329998888', '12345678910111216'),
-('PKfertilizer', '45678901', 5, 'PK Fertilizers', 'PKfertilizers@gmail.com', 'F2 Islamabad', '4567890', '03235555544', '12345678910111217');
+('default', 'default', 0, 'default', 'default@default.com', 'default', '1111111111111', '01234567891'), 
+('Flowershop', '01234567', 1, 'Flowershop', 'flowershop@gmail.com', 'Wapda Town Lahore', '5555555555555', '03361111111'),
+('ParadiseGarden', '12345678', 2, 'The Paradise Garden', 'paradisegarden@gmail.com', 'Bahria Town Karachi', '4444444444444', '03231212121'),
+('GTerrace', '23456789', 3, 'Green Terrace', 'greenterrace@gmail.com', 'DHA Phase3 Lahore', '3333333333333', '03341112222'), 
+('GardenDel', '34567890', 4, 'Garden Delights', 'gardendelights@gmail.com', 'Model Town Lahore', '2222222222222', '03329998888'),
+('PKfertilizer', '45678901', 5, 'PK Fertilizers', 'PKfertilizers@gmail.com', 'F2 Islamabad', '6666666666666', '03235555544');
+GO
 
 INSERT INTO Category VALUES
 (1, 'Plant'),
@@ -190,6 +195,7 @@ INSERT INTO Category VALUES
 (4, 'Pot'),
 (5, 'Tool'),
 (6, 'Other');
+GO
 
 INSERT INTO Product VALUES
 (1, 1, 'Petunia', 50, 1, 100, 'Petunia flower with pot grown locally', '2021-1-17', 'images/products/petunia.png', 1),
@@ -212,6 +218,7 @@ INSERT INTO Product VALUES
 (18, 5, 'NPK Fertilizer', 8000, 3, 50, '10kg NPK Fully organic fertilizers', '2021-1-01', 'images/products/npk_fertilizer.png', 1),
 (19, 5, 'Calcium Fertilizer', 6000, 3, 60, '10kg Calcium rich fertilizers', '2021-1-01', 'images/products/calcium_fertilizer.png', 1),
 (20, 5, 'Rodenticide', 2000, 5, 20, 'Kill pesky rodents by giving them this poison. 1kg Bag.', '2021-1-01', 'images/products/rodenticide.png', 1);
+GO
 
 INSERT INTO PaymentType VALUES
 (1,'Credit Card'),
@@ -219,6 +226,7 @@ INSERT INTO PaymentType VALUES
 (3,'Cheque on delivery'),
 (4,'Debit Card'),
 (5,'Mobile Payment');
+GO
 
 INSERT INTO Purchase VALUES
 (1, 4, 2, 10, '2021-2-24', 1),
@@ -241,6 +249,7 @@ INSERT INTO Purchase VALUES
 (18, 5, 14, 2,'2021-12-25',1),
 (19, 7, 16, 1,'2021-12-14',1),
 (20, 7, 19, 2,'2021-12-16',5);
+GO
 
 INSERT INTO Rating VALUES
 (17, 2, 1, 'Not Durable'),
@@ -259,17 +268,6 @@ INSERT INTO Rating VALUES
 (12, 1, 3, NULL),
 (10, 2, 3, 'They are pretty cute')
 GO
-
-SELECT * FROM Admin
-SELECT * FROM Customer
-SELECT * FROM Retailer
-SELECT * FROM Product
-SELECT * FROM Category
-SELECT * FROM Rating
-SELECT * FROM PaymentType
-SELECT * FROM Purchase
-GO
-
 
 --STORED PROCEDURES
 
@@ -301,22 +299,6 @@ IF	EXISTS (
 		   )
 	SET @found = 1
 ELSE
-	SET @found = 0
-END
-GO
-Create PROCEDURE search_NTN
-@NTN char(13),
-@found int output
-As
-BEGIN
-IF
-	EXISTS(
-			SELECT*
-			FROM Retailer
-			where Retailer.NTN = @NTN
-	)
-	SET @found = 1
-	ELSE
 	SET @found = 0
 END
 GO
@@ -414,8 +396,8 @@ AS
 IF @contact = ''
 	SET @contact = NULL
 
-INSERT INTO Customer ([UserName], [Password], CustomerID, Fname, Lname, Email, [Address], DOB,Contact, Points)
-values (@username, @password, @customerID, @fname, @lname, @email, @address, @dob,@contact, 0)
+INSERT INTO Customer ([UserName], [Password], CustomerID, Fname, Lname, Email, [Address], DOB,Contact)
+values (@username, @password, @customerID, @fname, @lname, @email, @address, @dob,@contact)
 GO
 CREATE PROCEDURE retailer_signup
 @username	varchar(20),
@@ -423,14 +405,13 @@ CREATE PROCEDURE retailer_signup
 @name varchar(20),
 @email varchar(30),
 @address	varchar(50),
-@bankAccount varchar(20),
 @contact char(11),
 @NTN char(13),
 @ID int
 AS
 
-INSERT INTO Retailer([UserName],[Password],[Name],Email,[Address], BankAccount,Contact,NTN,RetailerID)
-values (@username,@password,@name,@email,@address,@bankAccount,@contact,@NTN,@ID)
+INSERT INTO Retailer([UserName],[Password],[Name],Email,[Address],Contact,NTN,RetailerID)
+values (@username,@password,@name,@email,@address,@contact,@NTN,@ID)
 
 GO
 
@@ -521,7 +502,62 @@ WHERE	Retailer.UserName = @username
 ORDER BY Purchase.[Date] DESC
 GO
 
---SPECIALIZED FUNCTIONS
+--EDIT PAGES
+CREATE PROCEDURE edit_admin
+@uname	varchar(20),
+@fname	varchar(20),
+@lname	varchar(20),
+@email	varchar(30),
+@cnic	char(13)
+AS
+	UPDATE	[Admin]
+	SET		Fname = @fname,
+			Lname = @lname,
+			Email = @email,
+			CNIC = @cnic
+	WHERE	UserName = @uname
+GO
+
+CREATE PROCEDURE edit_customer
+@uname		varchar(20),
+@fname		varchar(20),
+@lname		varchar(20),
+@email		varchar(30),
+@address	varchar(50),
+@dob		date,
+@contact	char(11)
+AS
+	IF @contact = ''
+		SET @contact = NULL
+
+	UPDATE	Customer
+	SET		Fname = @fname,
+			Lname = @lname,
+			Email = @email,
+			[Address] = @address,
+			DOB = @dob,
+			[Contact] = @contact
+	WHERE	UserName = @uname
+GO
+
+CREATE PROCEDURE edit_retailer
+@uname		varchar(20),
+@name		varchar(30),
+@email		varchar(30),
+@address	varchar(50),
+@ntn		char(13),
+@contact	char(11)
+AS
+	UPDATE	Retailer
+	SET		[Name] = @name,
+			Email = @email,
+			[Address] = @address,
+			NTN = @ntn,
+			[Contact] = @contact
+	WHERE	UserName = @uname
+GO
+
+--PRODUCT MANAGEMENT
 CREATE PROCEDURE get_current_products
 AS
 	SELECT	Product.ProductID, Retailer.[Name] AS [Retailer], Product.[Name] AS [Product],
@@ -573,6 +609,7 @@ INSERT INTO Product VALUES
 (@productID, @retailerID, @name, @price, @categoryID, @stock, @desc, @dateAdded, @image, 1)
 GO
 
+--CART FUNCTIONS
 CREATE PROCEDURE add_purchase
 @PurchaseID int,
 @CustomerID int,
@@ -589,26 +626,122 @@ CREATE PROCEDURE get_stock
 @ProductID int,
 @ret int output
 AS
+	BEGIN TRANSACTION
+	SAVE TRANSACTION SAVEPOINT
+
+	BEGIN TRY
+
 	SET @ret= (Select Product.Stock
 	FROM Product
 	WHERE Product.ProductID = @ProductID)
+
+	END TRY
+
+	BEGIN CATCH
+	IF @@TRANCOUNT > 0
+	BEGIN
+	ROLLBACK TRANSACTION SAVEPOINT
+	END
+	END CATCH
+
+	COMMIT TRANSACTION
 GO
 
 CREATE PROCEDURE update_stock
 @ProductID int,
 @val int
 AS
+	BEGIN TRANSACTION
+	SAVE TRANSACTION SAVEPOINT
+
+	BEGIN TRY
+
 	UPDATE product
 	SET Product.Stock = @val
 	WHERE Product.ProductID = @ProductID;
+
+	END TRY
+
+	BEGIN CATCH
+	IF @@TRANCOUNT > 0
+	BEGIN
+	ROLLBACK TRANSACTION SAVEPOINT
+	END
+	END CATCH
+
+	COMMIT TRANSACTION
+	
 GO
 
+
+--RATING
 CREATE PROCEDURE get_ratings
 @productID int
 AS
+	BEGIN TRANSACTION
+	SAVE TRANSACTION SAVEPOINT
+
+	BEGIN TRY
+
 	Select	Customer.UserName AS [Name],Rating.score AS [Rating],Rating.review AS [Review]
 	FROM	Product
 			INNER JOIN Rating On Product.ProductID=Rating.productID
 			INNER JOIN Customer ON Customer.CustomerID=Rating.customerID
 	WHERE	Product.ProductID=@productID
+
+	END TRY
+
+	BEGIN CATCH
+	IF @@TRANCOUNT > 0
+	BEGIN
+	ROLLBACK TRANSACTION SAVEPOINT
+	END
+	END CATCH
+
+	COMMIT TRANSACTION
+GO
+
+CREATE PROCEDURE unrated_products
+@username varchar(20)
+
+AS
+	Select  [Product].[name] as [ProductName], [Product].ProductID
+	from purchase
+	Inner Join [Customer] on [Purchase].CustomerID = Customer.CustomerID Inner Join Product on Product.ProductID = Purchase.ProductID
+    where (Customer.UserName=@username)
+EXCEPT 
+Select  [Product].[name] as Name, [Product].ProductID
+	from Rating
+	Inner Join [Customer] on Rating.CustomerID = Customer.CustomerID Inner Join Product on Product.ProductID = Rating.ProductID
+    where (Customer.UserName=@username)
+GO
+
+CREATE PROCEDURE rate_product
+@customerID	int,
+@productID int,
+@score int,
+@review varchar(200)
+AS
+
+	BEGIN TRANSACTION
+	SAVE TRANSACTION SAVEPOINT
+
+	BEGIN TRY
+
+	if @review = ''
+		set @review = null
+
+	INSERT INTO Rating
+	values (@productID,@customerID, @score, @review);
+
+	END TRY
+
+	BEGIN CATCH
+	IF @@TRANCOUNT > 0
+	BEGIN
+	ROLLBACK TRANSACTION SAVEPOINT
+	END
+	END CATCH
+
+	COMMIT TRANSACTION
 GO

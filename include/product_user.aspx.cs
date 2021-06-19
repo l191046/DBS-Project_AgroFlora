@@ -15,10 +15,18 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if(Session["customer"] == null)
+			string username = Session["customer"] as string;
+			if (username == null)
 			{
-				tr_purchaseAmount.Visible = false;
-				btn_proceed.Visible = false;	
+				//REPLACE WITH ERROR PAGE
+				//Response.Redirect("error.aspx");
+				username = "default";
+				Session["customer"] = username;
+
+				ArrayList cartItems = new ArrayList();
+				ArrayList cartQuantity = new ArrayList();
+				Session["item"] = cartItems;
+				Session["quantity"] = cartQuantity;
 			}
 			load_product();
 			load_ratings();
@@ -121,8 +129,8 @@ namespace Agroflora
 			}
 			else
 			{
-				grid_ratings.DataSource = dt;
-				grid_ratings.DataBind();
+				rep_ratings.DataSource = dt;
+				rep_ratings.DataBind();
 			}
 		}
 

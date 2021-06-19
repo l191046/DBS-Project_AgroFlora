@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Web.Management;
-
 namespace Agroflora.DAL
 {
 	public class agroflora_DAL
@@ -78,43 +72,6 @@ namespace Agroflora.DAL
 				con.Close();
 			}
 			return result;
-		}
-		public int search_NTN(String inputNTN)
-		{
-			//return -1 if server issue
-			//return 0 if not found
-			//return 1 if found
-			int result = 0;
-			
-			SqlConnection con = new SqlConnection(connectionString);
-			con.Open();
-			SqlCommand command;
-			try
-			{
-				command = new SqlCommand("search_NTN", con);
-				command.CommandType = CommandType.StoredProcedure;
-				command.Parameters.Add("@NTN", SqlDbType.Char, 13);
-				command.Parameters.Add("@found", SqlDbType.Int).Direction = ParameterDirection.Output;
-
-				command.Parameters["@NTN"].Value = inputNTN;
-
-				command.ExecuteNonQuery();
-
-				result = Convert.ToInt32(command.Parameters["@found"].Value);
-
-			}
-			catch (SqlException ex)
-			{
-				Console.WriteLine("SQL Error: " + ex.Message.ToString());
-				result = -1;
-			}
-			finally
-			{
-				con.Close();
-			}
-
-			return result;
-
 		}
 		public int search_retailer(String username)
 		{
@@ -409,7 +366,7 @@ namespace Agroflora.DAL
 
 			return result;
 		}
-		public int retailer_signup(string Username, string Password, string Name, string Email, string Address, string bankAccount, string Contact, string NTN)
+		public int retailer_signup(string Username, string Password, string Name, string Email, string Address, string Contact, string NTN)
 		{
 			int result = -1;
 			DataSet resultSet = new DataSet();
@@ -426,7 +383,6 @@ namespace Agroflora.DAL
 				command.Parameters.Add("@name", SqlDbType.VarChar, 20);
 				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
 				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
-				command.Parameters.Add("@bankAccount", SqlDbType.VarChar, 20);
 				command.Parameters.Add("@contact", SqlDbType.Char, 11);
 				command.Parameters.Add("@NTN", SqlDbType.Char, 13);
 				command.Parameters.Add("@ID", SqlDbType.Int);
@@ -436,7 +392,6 @@ namespace Agroflora.DAL
 				command.Parameters["@name"].Value = Name;
 				command.Parameters["@email"].Value = Email;
 				command.Parameters["@address"].Value = Address;
-				command.Parameters["@bankAccount"].Value = bankAccount;
 				command.Parameters["@contact"].Value = Contact;
 				command.Parameters["@NTN"].Value = NTN;
 				command.Parameters["@ID"].Value = get_table_count("retailer") + 1;
@@ -566,7 +521,6 @@ namespace Agroflora.DAL
 
 			return result;
 		}
-		
 		public int get_retailerID(string username)
 		{
 			int result = -1;
@@ -705,7 +659,7 @@ namespace Agroflora.DAL
 					da.Fill(resultSet);
 				}
 				DT = resultSet.Tables[0];
-				result = 1;
+				result = DT.Rows.Count;
 			}
 			catch (SqlException ex)
 			{
@@ -746,6 +700,128 @@ namespace Agroflora.DAL
 			catch (SqlException ex)
 			{
 				Console.WriteLine("SQL ERROR : " + ex.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+
+		//EDIT PAGES
+		public int edit_admin(string username, string fname, string lname, string email, string cnic)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("edit_admin", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@uname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@fname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@lname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@cnic", SqlDbType.Char, 13);
+				//set parameters
+				command.Parameters["@uname"].Value = username;
+				command.Parameters["@fname"].Value = fname;
+				command.Parameters["@lname"].Value = lname;
+				command.Parameters["@email"].Value = email;
+				command.Parameters["@cnic"].Value = cnic;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int edit_customer(string username, string fname, string lname, string email, string address, string dob, string contact)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("edit_customer", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@uname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@fname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@lname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
+				command.Parameters.Add("@dob", SqlDbType.Date);
+				command.Parameters.Add("@contact", SqlDbType.Char, 11);
+				//set parameters
+				command.Parameters["@uname"].Value = username;
+				command.Parameters["@fname"].Value = fname;
+				command.Parameters["@lname"].Value = lname;
+				command.Parameters["@email"].Value = email;
+				command.Parameters["@address"].Value = address;
+				command.Parameters["@dob"].Value = dob;
+				command.Parameters["@contact"].Value = contact;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int edit_retailer(string username, string name, string email, string address, string ntn, string contact)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("edit_retailer", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@uname", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@name", SqlDbType.VarChar, 20);
+				command.Parameters.Add("@email", SqlDbType.VarChar, 30);
+				command.Parameters.Add("@address", SqlDbType.VarChar, 50);
+				command.Parameters.Add("@ntn", SqlDbType.Char, 13);
+				command.Parameters.Add("@contact", SqlDbType.Char, 11);
+				//set parameters
+				command.Parameters["@uname"].Value = username;
+				command.Parameters["@name"].Value = name;
+				command.Parameters["@email"].Value = email;
+				command.Parameters["@address"].Value = address;
+				command.Parameters["@ntn"].Value = ntn;
+				command.Parameters["@contact"].Value = contact;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
 				result = -1;
 			}
 			finally
@@ -1145,6 +1221,80 @@ namespace Agroflora.DAL
 			}
 
 			return result;
+		}
+		public int unrated_products(string username, ref DataTable DT)
+		{
+			int result = -1;
+			DataSet resultSet = new DataSet();
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			try
+			{
+				SqlCommand command;
+				command = new SqlCommand("unrated_products", con);
+				command.CommandType = CommandType.StoredProcedure;
+
+				command.Parameters.Add("@username", SqlDbType.VarChar, 20);
+				command.Parameters["@username"].Value = username;
+				command.ExecuteNonQuery();
+
+				using (SqlDataAdapter da = new SqlDataAdapter(command))
+				{
+					da.Fill(resultSet);
+				}
+				DT = resultSet.Tables[0];
+				result = DT.Rows.Count;
+			}
+			catch (SqlException e)
+			{
+				Console.WriteLine("SQL ERROR : " + e.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+			return result;
+		}
+		public int rate_product(int customerID, int productID, int rating, string review)
+		{
+			int result = -1;
+			SqlConnection con = new SqlConnection(connectionString);
+			con.Open();
+			SqlCommand command;
+			try
+			{
+				command = new SqlCommand("rate_product", con);
+				command.CommandType = CommandType.StoredProcedure;
+				//establish parameters
+				command.Parameters.Add("@customerID", SqlDbType.Int);
+				command.Parameters.Add("@productID", SqlDbType.Int);
+				command.Parameters.Add("@score", SqlDbType.Int);
+				command.Parameters.Add("@review", SqlDbType.VarChar, 200);
+
+				//set parameters
+				command.Parameters["@customerID"].Value = customerID;
+				command.Parameters["@productID"].Value = productID;
+				command.Parameters["@score"].Value = rating;
+				command.Parameters["@review"].Value = review;
+
+				command.ExecuteNonQuery();
+				result = 1;
+			}
+			catch (SqlException sq)
+			{
+				Console.WriteLine("SQL ERROR: " + sq.Message.ToString());
+				result = -1;
+			}
+			finally
+			{
+				con.Close();
+			}
+
+
+			return result;
+
 		}
 
 	}

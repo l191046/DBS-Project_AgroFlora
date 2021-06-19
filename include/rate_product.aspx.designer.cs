@@ -11,88 +11,79 @@ namespace Agroflora
 {
 
 
-	public partial class product
+	public partial class rate_product
 	{
 
 		/// <summary>
-		/// Productdetails control.
+		/// img_logo_small control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlGenericControl Productdetails;
+		protected global::System.Web.UI.WebControls.Image img_logo_small;
 
 		/// <summary>
-		/// img_product control.
+		/// td_uname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image img_product;
+		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_uname;
 
 		/// <summary>
-		/// rep_ratings control.
+		/// td_pname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Repeater rep_ratings;
+		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_pname;
 
 		/// <summary>
-		/// td_name control.
+		/// txt_rating control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_name;
+		protected global::System.Web.UI.HtmlControls.HtmlTableCell txt_rating;
 
 		/// <summary>
-		/// td_category control.
+		/// drop_rating control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_category;
+		protected global::System.Web.UI.WebControls.DropDownList drop_rating;
 
 		/// <summary>
-		/// td_price control.
+		/// vld_rate control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_price;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_rate;
 
 		/// <summary>
-		/// td_desc control.
+		/// txt_review control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_desc;
+		protected global::System.Web.UI.WebControls.TextBox txt_review;
 
 		/// <summary>
-		/// td_quantity control.
+		/// btn_remove control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_quantity;
-
-		/// <summary>
-		/// td_stock control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_stock;
+		protected global::System.Web.UI.WebControls.Button btn_remove;
 	}
 }

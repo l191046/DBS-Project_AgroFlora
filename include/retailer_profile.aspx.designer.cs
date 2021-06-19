@@ -78,15 +78,6 @@ namespace Agroflora
 		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_contact;
 
 		/// <summary>
-		/// td_bankaccount control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_bankaccount;
-
-		/// <summary>
 		/// hyper_editprofile control.
 		/// </summary>
 		/// <remarks>
@@ -94,6 +85,24 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HyperLink hyper_editprofile;
+
+		/// <summary>
+		/// hr_products control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_products;
+
+		/// <summary>
+		/// h1_products control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_products;
 
 		/// <summary>
 		/// hyper_addproduct control.
@@ -112,6 +121,24 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.GridView grid_products;
+
+		/// <summary>
+		/// hr_sales control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_sales;
+
+		/// <summary>
+		/// h1_sales control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_sales;
 
 		/// <summary>
 		/// grid_sales control.

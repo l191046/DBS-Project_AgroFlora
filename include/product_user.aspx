@@ -14,13 +14,21 @@
                      <div class="container pt-5">
                         <h1 class="text-center">RATINGS</h1>
 
-                        <asp:GridView id ="grid_ratings" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:BoundField DataField="Name" HeaderText="Username"/>
-                                <asp:BoundField DataField="Rating" HeaderText="Rating"/>
-                                <asp:BoundField DataField="Review" HeaderText="Reviews"/>
-                            </Columns>
-                        </asp:GridView>
+                        <asp:Repeater ID="rep_ratings" runat="server">
+                            <HeaderTemplate>
+                                <table class="table table-hover">
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td style="border-right:groove"><asp:Label runat="server" Text='<%# Eval("Name") %>' style="font-weight:700"></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("Rating","{0}/5") %>'></asp:Label></td>
+                                    <td><asp:Label runat="server" Text='<%# Eval("Review") %>' style="font-style:italic"></asp:Label></td>
+                                </tr>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
                     </div>
             </div>
   

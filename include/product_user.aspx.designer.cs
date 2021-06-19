@@ -33,13 +33,13 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.Image img_product;
 
 		/// <summary>
-		/// grid_ratings control.
+		/// rep_ratings control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.GridView grid_ratings;
+		protected global::System.Web.UI.WebControls.Repeater rep_ratings;
 
 		/// <summary>
 		/// td_name control.

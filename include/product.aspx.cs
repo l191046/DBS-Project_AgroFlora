@@ -74,8 +74,8 @@ namespace Agroflora
 			}
 			else
 			{
-				grid_ratings.DataSource = dt;
-				grid_ratings.DataBind();
+				rep_ratings.DataSource = dt;
+				rep_ratings.DataBind();
 			}
 		}
 	}

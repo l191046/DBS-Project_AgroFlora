@@ -15,84 +15,111 @@ namespace Agroflora
 	{
 
 		/// <summary>
-		/// firstname control.
+		/// txt_uname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox firstname;
+		protected global::System.Web.UI.WebControls.TextBox txt_uname;
 
 		/// <summary>
-		/// lastname control.
+		/// txt_fname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox lastname;
+		protected global::System.Web.UI.WebControls.TextBox txt_fname;
 
 		/// <summary>
-		/// username control.
+		/// vld_fname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox username;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_fname;
 
 		/// <summary>
-		/// email control.
+		/// txt_lname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox email;
+		protected global::System.Web.UI.WebControls.TextBox txt_lname;
 
 		/// <summary>
-		/// oldpassword control.
+		/// vld_lname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox oldpassword;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_lname;
 
 		/// <summary>
-		/// newpassword control.
+		/// txt_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox newpassword;
+		protected global::System.Web.UI.WebControls.TextBox txt_email;
 
 		/// <summary>
-		/// address control.
+		/// vld_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox address;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_email;
 
 		/// <summary>
-		/// cnic control.
+		/// vld_exp_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox cnic;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_email;
 
 		/// <summary>
-		/// submit control.
+		/// txt_cnic control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button submit;
+		protected global::System.Web.UI.WebControls.TextBox txt_cnic;
+
+		/// <summary>
+		/// vld_cnic control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_cnic;
+
+		/// <summary>
+		/// vld_exp_cnic control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_cnic;
+
+		/// <summary>
+		/// btn_save control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btn_save;
 	}
 }

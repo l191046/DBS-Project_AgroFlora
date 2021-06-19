@@ -87,24 +87,6 @@ namespace Agroflora
 		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_contact;
 
 		/// <summary>
-		/// td_creditcard control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_creditcard;
-
-		/// <summary>
-		/// td_points control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlTableCell td_points;
-
-		/// <summary>
 		/// hyper_editprofile control.
 		/// </summary>
 		/// <remarks>
@@ -112,6 +94,51 @@ namespace Agroflora
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.HyperLink hyper_editprofile;
+
+		/// <summary>
+		/// hr_unrated control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_unrated;
+
+		/// <summary>
+		/// h1_unrated control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_unrated;
+
+		/// <summary>
+		/// grid_unrated control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.GridView grid_unrated;
+
+		/// <summary>
+		/// hr_purchases control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl hr_purchases;
+
+		/// <summary>
+		/// h1_purchases control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1_purchases;
 
 		/// <summary>
 		/// grid_history control.

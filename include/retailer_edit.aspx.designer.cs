@@ -15,102 +15,138 @@ namespace Agroflora
 	{
 
 		/// <summary>
-		/// firstname control.
+		/// txt_uname control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox firstname;
+		protected global::System.Web.UI.WebControls.TextBox txt_uname;
 
 		/// <summary>
-		/// lastname control.
+		/// txt_name control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox lastname;
+		protected global::System.Web.UI.WebControls.TextBox txt_name;
 
 		/// <summary>
-		/// username control.
+		/// vld_name control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox username;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_name;
 
 		/// <summary>
-		/// email control.
+		/// txt_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox email;
+		protected global::System.Web.UI.WebControls.TextBox txt_email;
 
 		/// <summary>
-		/// oldpassword control.
+		/// vld_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox oldpassword;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_email;
 
 		/// <summary>
-		/// newpassword control.
+		/// vld_exp_email control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox newpassword;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_email;
 
 		/// <summary>
-		/// address control.
+		/// txt_address control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox address;
+		protected global::System.Web.UI.WebControls.TextBox txt_address;
 
 		/// <summary>
-		/// NTN control.
+		/// vld_address control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox NTN;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_address;
 
 		/// <summary>
-		/// BankAccount control.
+		/// txt_ntn control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox BankAccount;
+		protected global::System.Web.UI.WebControls.TextBox txt_ntn;
 
 		/// <summary>
-		/// contact control.
+		/// vld_ntn control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox contact;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_ntn;
 
 		/// <summary>
-		/// submit control.
+		/// vld_exp_ntn control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button submit;
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_ntn;
+
+		/// <summary>
+		/// txt_contact control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txt_contact;
+
+		/// <summary>
+		/// vld_contact control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_contact;
+
+		/// <summary>
+		/// vld_exp_contact control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator vld_exp_contact;
+
+		/// <summary>
+		/// btn_save control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btn_save;
 	}
 }

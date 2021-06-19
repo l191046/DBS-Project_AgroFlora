@@ -3,12 +3,17 @@
     height: 20vw;
     object-fit: cover;
 }
+.floating{
+    float: left;
+}
 .error {
     color: red;
+    font-weight:600;
 }
 .error-hidden {
     color: red;
     display: none;
+    font-weight: 600;
 }
 .hidden{
     display:none;

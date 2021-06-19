@@ -11,24 +11,35 @@
       <h1>Customer Sign-In</h1>
     </div>
 
-    <div class="form-signin text-center pb-5" style="align-items: center;">
-        <div class="col-md-4 offset-md-4" style="margin-top: auto;  margin-bottom: auto;" >
-
-            <h6 id="txt_credentials" class="error-hidden">Invalid Credentials</h6>
-
-            <asp:TextBox Id="txt_username" placeholder="Username" runat="server" CssClass="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="vld_username" runat="server" ErrorMessage="Username is required" ControlToValidate="txt_username" CssClass="error"></asp:RequiredFieldValidator>
-
-            <asp:TextBox Id="txt_password" placeholder="Password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="vld_password" runat="server" ErrorMessage="Password is required" ControlToValidate="txt_password" CssClass="error"></asp:RequiredFieldValidator>
-
-            <div class="pt-3">
-                <asp:Button ID="btn_signin" cssClass="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In" OnClick="btn_signin_click" ></asp:Button>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 offset-4 text-center">
+                <h6 id="txt_credentials" class="error-hidden">Invalid Credentials</h6>
             </div>
-        
+        </div>
+        <div class="row">
+            <div class="col-4 offset-4">
+                <asp:TextBox Id="txt_username" placeholder="Username" runat="server" CssClass="form-control floating"></asp:TextBox>
+            </div>
+            <div class="col-4">
+                <asp:RequiredFieldValidator ID="vld_username" runat="server" ErrorMessage="Username is required" ControlToValidate="txt_username" CssClass="error"></asp:RequiredFieldValidator>
+            </div>
         </div>
 
+        <div class="row">
+            <div class="col-4 offset-4">
+                <asp:TextBox Id="txt_password" placeholder="Password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-4">
+                <asp:RequiredFieldValidator ID="vld_password" runat="server" ErrorMessage="Password is required" ControlToValidate="txt_password" CssClass="error"></asp:RequiredFieldValidator>
+            </div>
+        </div>
 
+        <div class="row pt-3">
+            <div class="col-4 offset-4">
+                <asp:Button ID="btn_signin" cssClass="w-100 btn btn-lg btn-primary" type="submit" runat="server" Text="Sign In" OnClick="btn_signin_click" ></asp:Button>
+            </div>
+        </div>
     </div>
 
 </asp:Content>

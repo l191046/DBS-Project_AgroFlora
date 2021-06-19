@@ -22,7 +22,6 @@ namespace Agroflora
 			string password = txt_password.Text;
 			string address = txt_address.Text;
 			string ntn = txt_NTN.Text;
-			string bankAccount = txt_BankAccount.Text;
 			string contact = txt_contact.Text;
 
 			int username_taken = objDAL.search_retailer(username);
@@ -37,7 +36,7 @@ namespace Agroflora
 					return;
 				case 0:
 					//username not found in system
-					if( objDAL.retailer_signup(username, password, name, email, address, bankAccount, contact, ntn) == -1)
+					if( objDAL.retailer_signup(username, password, name, email, address, contact, ntn) == -1)
 					{
 						Response.Redirect("error.aspx");
 						return;

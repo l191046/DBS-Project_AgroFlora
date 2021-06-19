@@ -34,21 +34,19 @@
                         <th>Contact</th>
                         <td id="td_contact" runat="server">Contact</td>
                     </tr>
-                    <tr>
-                        <th>Bank Account</th>
-                        <td id="td_bankaccount" runat="server">BankAccount</td>
-                    </tr>
                 </tbody>
             </table>
     </div>
     <div class="container text-center">
         <asp:HyperLink ID="hyper_editprofile" runat="server" href="retailer_edit.aspx" CssClass="btn btn-primary" role="button">Edit Profile</asp:HyperLink>
     </div>
-    <hr>
+    
+    
 
     <!--RETAILER PRODUCTS-->
+    <hr id="hr_products" runat="server"/>
     <div class="container pt-5">
-        <h1 class="text-center">PRODUCTS</h1>
+        <h1 class="text-center" id="h1_products" runat="server">PRODUCTS</h1>
 
         <div class="container text-center pb-3">
             <asp:HyperLink ID="hyper_addproduct" runat="server" href="product_add.aspx" CssClass="btn btn-primary" role="button">Add Product</asp:HyperLink>
@@ -65,11 +63,11 @@
             </Columns>
         </asp:GridView>
     </div>
-    <hr>
+    <hr id="hr_sales" runat="server" />
 
     <!--RETAILER SALES-->
     <div class="container pt-5">
-        <h1 class="text-center">SALES HISTORY</h1>
+        <h1 class="text-center" id="h1_sales" runat="server">SALES HISTORY</h1>
 
         <asp:GridView id ="grid_sales" class="table table-striped table-hover table-bordered"  runat="server" AutoGenerateColumns="False">
             <Columns>
