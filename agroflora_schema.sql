@@ -745,3 +745,25 @@ AS
 
 	COMMIT TRANSACTION
 GO
+
+/*Triggers*/
+ CREATE TRIGGER Customer_inserted
+ On Customer
+ AFTER INSERT 
+ AS 
+ PRINT 'New customer Inserted'
+ GO
+
+ CREATE TRIGGER Retailer_inserted
+ On Retailer
+ AFTER INSERT 
+ AS 
+ PRINT 'New Reatiler Inserted'
+ GO
+
+ CREATE TRIGGER ADMIN_inserted
+ On Admin
+ AFTER INSERT 
+ AS 
+ PRINT 'New Admin Inserted'
+ GO
