@@ -13,9 +13,9 @@ namespace Agroflora
 			if (retailer == null)
 			{
 				//REPLACE WITH ERROR PAGE
-				//Response.Redirect("error.aspx");
-				retailer = "default";
-				Session["retailer"] = retailer;
+				Response.Redirect("error.aspx");
+				//retailer = "default";
+				//Session["retailer"] = retailer;
 			}
 		}
 

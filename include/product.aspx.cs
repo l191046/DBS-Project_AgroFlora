@@ -50,6 +50,10 @@ namespace Agroflora
 				td_desc.InnerHtml = DT.Rows[0]["Description"].ToString();
 				int stock = Int32.Parse(DT.Rows[0]["Stock"].ToString());
 				td_quantity.InnerHtml = stock.ToString();
+				if (stock == 0)
+				{
+					td_stock.InnerHtml = "OUT OF STOCK";
+				}
 			}
 
 		}

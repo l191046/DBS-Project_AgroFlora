@@ -62,7 +62,8 @@
                         <th>Purchase Amount:</th>
                         <td>
                             <asp:TextBox ID="quantity" TextMode="Number" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:RangeValidator ID="vld_stock" runat="server" ErrorMessage="Out of range" ControlToValidate="quantity" MinimumValue="1" Type="Integer" CssClass="error" ></asp:RangeValidator>
+                            <asp:RequiredFieldValidator ID="vld_quantity" runat="server" ErrorMessage="Please Enter an Amount" ControlToValidate="quantity" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RangeValidator ID="vld_rng_quantity" runat="server" ErrorMessage="Out of range" ControlToValidate="quantity" MinimumValue="1" Type="Integer" CssClass="error" Display="Dynamic" ></asp:RangeValidator>
                         </td>
                     </tr>
                 </table>                

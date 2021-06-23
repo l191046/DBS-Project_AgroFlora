@@ -114,13 +114,22 @@ namespace Agroflora
 		protected global::System.Web.UI.WebControls.TextBox quantity;
 
 		/// <summary>
-		/// vld_stock control.
+		/// vld_quantity control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.RangeValidator vld_stock;
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator vld_quantity;
+
+		/// <summary>
+		/// vld_rng_quantity control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RangeValidator vld_rng_quantity;
 
 		/// <summary>
 		/// btn_proceed control.

@@ -17,14 +17,14 @@ namespace Agroflora
             if (username == null || productID == 0)
 			{
                 //REPLACE WITH ERROR PAGE
-                //Response.Redirect("error.aspx");
-                username = "default";
-                Session["customer"] = username;
-                ArrayList cartItems = new ArrayList();
-                ArrayList cartQuantity = new ArrayList();
-                Session["item"] = cartItems;
-                Session["quantity"] = cartQuantity;
-                productID = 1;
+                Response.Redirect("error.aspx");
+                //username = "default";
+                //Session["customer"] = username;
+                //ArrayList cartItems = new ArrayList();
+                //ArrayList cartQuantity = new ArrayList();
+                //Session["item"] = cartItems;
+                //Session["quantity"] = cartQuantity;
+                //productID = 1;
             }
 
             td_uname.InnerHtml = username;

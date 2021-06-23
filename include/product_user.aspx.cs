@@ -18,15 +18,28 @@ namespace Agroflora
 			string username = Session["customer"] as string;
 			if (username == null)
 			{
-				//REPLACE WITH ERROR PAGE
-				//Response.Redirect("error.aspx");
-				username = "default";
-				Session["customer"] = username;
+				quantity.Visible = false;
+				btn_proceed.Visible = false;
+				tr_purchaseAmount.Visible = false;
 
-				ArrayList cartItems = new ArrayList();
-				ArrayList cartQuantity = new ArrayList();
-				Session["item"] = cartItems;
-				Session["quantity"] = cartQuantity;
+				username = Session["retailer"] as string;
+				if (username == null)
+				{
+					username = Session["admin"] as string;
+				}
+			}
+			
+			if (username == null)
+			{
+				//REPLACE WITH ERROR PAGE
+				Response.Redirect("error.aspx");
+				//username = "default";
+				//Session["customer"] = username;
+
+				//ArrayList cartItems = new ArrayList();
+				//ArrayList cartQuantity = new ArrayList();
+				//Session["item"] = cartItems;
+				//Session["quantity"] = cartQuantity;
 			}
 			load_product();
 			load_ratings();
@@ -65,13 +78,13 @@ namespace Agroflora
 				td_quantity.InnerHtml = stock.ToString();
 				if (stock > 0)
 				{
-					vld_stock.MaximumValue = stock.ToString();
+					vld_rng_quantity.MaximumValue = stock.ToString();
 				}
 				else
 				{
 					td_stock.InnerHtml = "OUT OF STOCK";
-					vld_stock.MaximumValue = "0";
-					vld_stock.MinimumValue = "0";
+					vld_rng_quantity.MaximumValue = "0";
+					vld_rng_quantity.MinimumValue = "0";
 					quantity.Visible = false;
 					btn_proceed.Visible = false;
 					tr_purchaseAmount.Visible = false;
@@ -105,7 +118,7 @@ namespace Agroflora
 			Session["item"] = cartItems;
 			Session["quantity"] = cartQuantity;
 
-			Response.Redirect("catalogue_user.aspx");
+			Response.Redirect("home_user.aspx");
 
 		}
 

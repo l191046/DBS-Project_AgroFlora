@@ -9,6 +9,12 @@ namespace Agroflora
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			string username = Session["admin"] as string;
+			if (username == null)
+			{
+				Response.Redirect("error.aspx");
+			}
+			
 			load_current_products();
 			load_removed_products();
 		}

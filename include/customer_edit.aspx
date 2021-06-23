@@ -85,7 +85,8 @@
                 <asp:TextBox ID="txt_contact" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="col-3">
-                <asp:RegularExpressionValidator ID="vld_exp_contact" runat="server" ErrorMessage="Contact must be 11 digits" CssClass="error" ControlToValidate="txt_contact" ValidationExpression="\d{11}$"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="vld_contact" runat="server" ErrorMessage="Contact is required" ControlToValidate="txt_contact" CssClass="error" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="vld_exp_contact" runat="server" ErrorMessage="Contact must be 11 digits" CssClass="error" ControlToValidate="txt_contact" ValidationExpression="\d{11}$" Display="Dynamic"></asp:RegularExpressionValidator>
             </div>
         </div>
 

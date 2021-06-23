@@ -14,14 +14,14 @@ namespace Agroflora
 			if (username == null)
 			{
 				//REPLACE WITH ERROR PAGE
-				//Response.Redirect("error.aspx");
-				username = "default";
-				Session["customer"] = username;
+				Response.Redirect("error.aspx");
+				//username = "default";
+				//Session["customer"] = username;
 
-				ArrayList cartItems = new ArrayList();
-				ArrayList cartQuantity = new ArrayList();
-				Session["item"] = cartItems;
-				Session["quantity"] = cartQuantity;
+				//ArrayList cartItems = new ArrayList();
+				//ArrayList cartQuantity = new ArrayList();
+				//Session["item"] = cartItems;
+				//Session["quantity"] = cartQuantity;
 			}
 			load_profile();
 			load_history();

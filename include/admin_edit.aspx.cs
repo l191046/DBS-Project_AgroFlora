@@ -12,9 +12,9 @@ namespace Agroflora
 			if (username == null)
 			{
 				//REPLACE WITH ERROR PAGE
-				//Response.Redirect("error.aspx");
-				username = "default";
-				Session["admin"] = username;
+				Response.Redirect("error.aspx");
+				//username = "default";
+				//Session["admin"] = username;
 			}
 			if (!IsPostBack)
 			{
